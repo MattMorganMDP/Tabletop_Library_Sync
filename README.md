@@ -8,7 +8,9 @@ Goals are to:
 This is accomplished by linking game ID numbers between PAX and BGG
 
 Step 1 - Script to pull (or update existing copy of) BGG game title & ID# pairs
+
 Step 2 - Script to consume PAX TTL's Titles report and generate a .csv file that can be used to correct PAX TTL db
+
 Step 3 - Script to generate PAX & BDD ID# table, along with metadata for each title gathered from BGG's XMLAPI2
 
 Additional efforts:
