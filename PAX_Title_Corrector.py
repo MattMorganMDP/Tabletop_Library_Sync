@@ -9,15 +9,28 @@ print('Current working directory is: ' + str(Path.cwd()))
 # Function to write a row to the PAX Corrections csv
 ########################################################################
 
-def TitleWriting(game, newname = ''):
+def TitleWriting(game, newname = '.'):
+
+    #Load global variables
     global PAXnames
     global PAXvaluable
     global PAXcount
     global PAXids
-    if newname == '':
-        TitleWriter.writerow([game, PAXpublisher[PAXnames.index(game)], bool(PAXvaluable[PAXnames.index(game)]), int(PAXcount[PAXnames.index(game)]), int(PAXids[PAXnames.index(game)])])
+    global BGGnames
+
+    # Test for correction conditions . 
+    # 1) Newname == . means no value was passed, so write row as-is. 
+    # 2) A blank newname means correction was attempted but failed, so write row with a 0 in BGG ID# field
+    # 3) If not blank or ., write the newname variable as game title
+    if newname == '.':
+        #TitleWriter.writerow([game, PAXpublisher[PAXnames.index(game)], bool(PAXvaluable[PAXnames.index(game)]), int(PAXcount[PAXnames.index(game)]), int(PAXids[PAXnames.index(game)])])
+        TitleWriter.writerow([game, PAXpublisher[PAXnames.index(game)], bool(PAXvaluable[PAXnames.index(game)]), int(PAXcount[PAXnames.index(game)]), int(PAXids[PAXnames.index(game)]), BGGnames[game]])
     else:
-        TitleWriter.writerow([newname, PAXpublisher[PAXnames.index(game)], bool(PAXvaluable[PAXnames.index(game)]), int(PAXcount[PAXnames.index(game)]), int(PAXids[PAXnames.index(game)])])
+        if newname == '':
+            TitleWriter.writerow([game, PAXpublisher[PAXnames.index(game)], bool(PAXvaluable[PAXnames.index(game)]), int(PAXcount[PAXnames.index(game)]), int(PAXids[PAXnames.index(game)]), 0])
+        else:
+            #TitleWriter.writerow([newname, PAXpublisher[PAXnames.index(game)], bool(PAXvaluable[PAXnames.index(game)]), int(PAXcount[PAXnames.index(game)]), int(PAXids[PAXnames.index(game)])])
+            TitleWriter.writerow([game, PAXpublisher[PAXnames.index(game)], bool(PAXvaluable[PAXnames.index(game)]), int(PAXcount[PAXnames.index(game)]), int(PAXids[PAXnames.index(game)]), BGGnames[newname]])
     return()
 
 ########################################################################
@@ -86,8 +99,9 @@ for x in range(1,sheet.max_row + 1):
 
 ###### LOAD PAX TITLES ######
 # Read in elements of .csv to different lists, iterating over every row in the PAX Titles csv
-PAXgames = open('TTLibrary_Titles_withID.csv', mode='r', newline='')
-#PAXgames = open('PAXcorrections - June27.csv', mode='r', newline='')
+PAXgames = open('TTLibrary_Titles-testshort.csv', mode='r', newline='')
+#PAXgames = open('TTLibrary_Titles_withID.csv', mode='r', newline='')
+#PAXgames = open('PAXcorrections_Excel.csv', mode='r', newline='')
 reader = csv.reader(PAXgames)
 
 #Initialize lists
@@ -99,6 +113,7 @@ PAXids = []
 
 #Iterate through PAX Titles csv and append different elements of each row to the appropriate list
 header = next(reader)
+header.append('BGG ID')
 print(header)
 for rows in reader:
     PAXnames.append(rows[0])
@@ -126,7 +141,7 @@ for game in PAXnames:
             print('No match was found on first attempt')
             manual_title = input('Please manually enter a corrected title. If unsure, leave blank to skip: ')
             if manual_title == '':
-                TitleWriting(game)
+                TitleWriting(game, manual_title)
             else:
                 status = AttemptMatch(game, BGGnames, manual_title)
                 
