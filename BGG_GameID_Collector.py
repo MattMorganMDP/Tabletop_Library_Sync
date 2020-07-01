@@ -9,6 +9,10 @@ import openpyxl #used in creating and writing to .xlsx filtes
 from pathlib import Path #used in handling Path objects
 import os #used in reading and creating directory for output
 
+#########################################################
+# Function to extract info from BGG and perform file I/O
+#########################################################
+
 def BGGextract(filename, first_item, last_item):
     
     print('Script will extract IDs beginning with #' + str(first_item) + ' and ending with #' + str(last_item))
@@ -30,7 +34,11 @@ def BGGextract(filename, first_item, last_item):
         sheet = wb.active
         row_counter = sheet.max_row + 1 #Initialize incremental value for last written row. 
         #This is necessary as some BGG IDs will be skipped, and there will not be a 1-for-1 relationship to past written ID#s to # of rows written
-        print('# of rows previously written: ' + row_counter)
+        print('# of rows previously written: ' + str(row_counter))
+
+        #For existing files, set the first item by reading in BGG ID# of last written row
+        first_item = sheet.cell(row = sheet.max_row, column = 1).value
+        print('First BGG value to attempt is: ' + str(first_item))
 
     else:
         print ('File does not exist. Creating new workbook.')
@@ -125,10 +133,10 @@ if __name__ == "__main__":
     #Determine range of BGG ID #s to extract. If integers are not provided for inputs, set range from 1 to highest number available on BGG website
     
     #Set lower bound of ID# range
-    try:
-        first_item = int(input('Enter lowest BGG ID value to capture. Blank input will set script to start at ID #1: '))
-    except:
-        first_item = 1
+    #try:
+    #    first_item = int(input('Enter lowest BGG ID value to capture. Blank input will set script to start at ID #1: '))
+    #except:
+    #    first_item = 1
 
     #Set upper bound of ID# range
     try:
@@ -136,8 +144,13 @@ if __name__ == "__main__":
     except:
         last_item = BGGmaxitem() #call function to extract highest possible ID# from GeekFeed's RSS
 
-    #Set filename. Hardcoded for now.
-    filename = 'BGG_ID_spreadsheets-v4test.xlsx'
-
+    #Set filename.
+    filename = input("Enter the filename of past BGG titles export, or leave blank to create new. Please use / as backslash if typing in directory path: ")
+    if filename == '':
+        filename = 'BGG_ID_spreadsheet.xlsx'
+        first_item = 1
+    else:
+        first_item = 'max_row'
+     
     #Call the main function for extracting data from BGG, passing all of the above variables
     BGGextract(filename, first_item, last_item)

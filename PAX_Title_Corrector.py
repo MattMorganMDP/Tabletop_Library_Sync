@@ -99,9 +99,14 @@ for x in range(1,sheet.max_row + 1):
 
 ###### LOAD PAX TITLES ######
 # Read in elements of .csv to different lists, iterating over every row in the PAX Titles csv
-PAXgames = open('TTLibrary_Titles-testshort.csv', mode='r', newline='')
-#PAXgames = open('TTLibrary_Titles_withID.csv', mode='r', newline='')
-#PAXgames = open('PAXcorrections_Excel.csv', mode='r', newline='')
+PAX_Titles_path = input("Enter the filename of PAX Titles report - please use / as backslash if typing in directory path: ")
+if PAX_Titles_path == '':
+    PAXgames = open('PAXcorrections - June27.csv', 'r', newline='', encoding='utf-16')
+    #PAXgames = open('TTLibrary_Titles-testshort.csv', mode='r', newline='')
+    #PAXgames = open('TTLibrary_Titles_withID.csv', mode='r', newline='')
+    #PAXgames = open('PAXcorrections_Excel.csv', mode='r', newline='')
+else:
+    PAXgames = open(PAX_Titles_path, 'r', newline='')
 reader = csv.reader(PAXgames)
 
 #Initialize lists
@@ -114,7 +119,6 @@ PAXids = []
 #Iterate through PAX Titles csv and append different elements of each row to the appropriate list
 header = next(reader)
 header.append('BGG ID')
-print(header)
 for rows in reader:
     PAXnames.append(rows[0])
     PAXpublisher.append(rows[1])
@@ -142,6 +146,7 @@ for game in PAXnames:
             manual_title = input('Please manually enter a corrected title. If unsure, leave blank to skip: ')
             if manual_title == '':
                 TitleWriting(game, manual_title)
+                status = 'done'  #revert the status code returned by AttemptMatch() so user is not prompted for manual input again in next code block (if status == 'fail')
             else:
                 status = AttemptMatch(game, BGGnames, manual_title)
                 
