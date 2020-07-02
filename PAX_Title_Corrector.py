@@ -65,7 +65,7 @@ def MatchSelector(match, title):
     return selected
 
 ###################################################################################################################################
-# Function to drive attempting of a match. Calls MatchSelector and TitleWriter functions. Can sense if first or subsequent attempt.
+# Function to drive attempting of a match. Calls MatchSelector and TitleWriting functions. Can sense if first or subsequent attempt.
 ###################################################################################################################################
 
 def AttemptMatch(game, BGGnames, manual_name = ''):
