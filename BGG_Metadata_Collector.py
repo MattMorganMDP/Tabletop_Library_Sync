@@ -1,8 +1,6 @@
-from pathlib import Path #used in handling Path objects
 import csv
 import requests   #support for pulling contents of webpages
 from bs4 import BeautifulSoup  #function for reading the page's XML returned by requests library
-import re    #support for regular expressions
 from time import sleep  #sleep function allows pausing of script, to avoid getting rate-limited by BGG
 from random import randint  #generate random integers, used in randomizing wait time
 import itertools #uses zip function to iterate over two lists concurrently
@@ -25,11 +23,11 @@ PAXnames = []
 PAXids  = []
 BGGids = []
 ID_range = []
+
+#use next() function to clear the first row in CSV reader, but replace header value with new list of column names for export
 header = next(reader)
-#TO DO - Set header to be actual fields we want to collect
-header = ['Title', 'PAX ID', 'BGG ID', 'Min Player', 'Max Player']
+header = ['Title', 'PAX ID', 'BGG ID', 'Min Player', 'Max Player', 'Year Published', 'Playtime', 'Minimum Age', 'Avg Rating', 'Weight']
 print(header)
-header.append('BGG ID')
 for rows in reader:
     PAXnames.append(rows[0])
     PAXids.append(rows[4])
@@ -52,24 +50,34 @@ for count, IDs in enumerate(BGGids):
     ID_range.append(IDs)
     if (count+1)%100 == 0:
         URL_args = ','.join(list(map(str,ID_range))) 
-        url = base_url + URL_args  
+        url = base_url + URL_args  + '&stats=1'
         print(url)
         
         #Use requests and BeautifulSoup to extract and read XML. Separaetly pull XML tags: (1) of <name> with type "primary", (2) of <item>
         response = requests.get(url)
         soup = BeautifulSoup(response.text, 'lxml')
         soup_min = soup.find_all('minplayers') 
-        soup_max = soup.find_all('maxplayers') 
+        soup_max = soup.find_all('maxplayers')
+        soup_year = soup.find_all('yearpublished')
+        soup_time = soup.find_all('playingtime')
+        soup_age = soup.find_all('minage')
+        soup_rating = soup.find_all('average')
+        soup_weight = soup.find_all('averageweight')
         #TO DO - Continue adding soup objects for desired metadata fiels
 
         #Regex processing of soup objects. Include BGG_id sequence from ID_range to use as index value of PAXnames/PAXids when writing csv
-        for min_player, max_player, BGG_id in zip(soup_min, soup_max, ID_range):
+        for min_player, max_player, year, time, age, rating, weight, BGG_id in zip(soup_min, soup_max, soup_year, soup_time, soup_age, soup_rating, soup_weight, ID_range):
             game_min_player = min_player.attrs['value']
             game_max_player = max_player.attrs['value']
+            year_published = year.attrs['value']
+            play_time = time.attrs['value']
+            min_age = age.attrs['value']
+            avg_rating = rating.attrs['value']
+            avg_weight = weight.attrs['value']
 
             #Write row to CSV only if game has a BGG ID#
             if BGG_id != 0:
-                DataWriter.writerow([PAXnames[BGGids.index(BGG_id)], PAXids[BGGids.index(BGG_id)], BGG_id, game_min_player, game_max_player ])
+                DataWriter.writerow([PAXnames[BGGids.index(BGG_id)], PAXids[BGGids.index(BGG_id)], BGG_id, game_min_player, game_max_player, year_published, play_time, min_age, avg_rating, avg_weight ])
                 #print(min_player, max_player, BGG_id)
                 print(PAXnames[BGGids.index(BGG_id)])
 
