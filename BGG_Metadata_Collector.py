@@ -5,6 +5,7 @@ from bs4 import BeautifulSoup  #function for reading the page's XML returned by 
 import re    #support for regular expressions
 from time import sleep  #sleep function allows pausing of script, to avoid getting rate-limited by BGG
 from random import randint  #generate random integers, used in randomizing wait time
+import itertools #uses zip function to iterate over two lists concurrently
 
 ###### LOAD PAX TITLES ######
 # Read in elements of .csv to different lists, iterating over every row in the PAX Titles csv
@@ -21,15 +22,17 @@ reader = csv.reader(PAXgames)
 
 #Initialize lists
 PAXnames = []
+PAXids  = []
 BGGids = []
 ID_range = []
 header = next(reader)
 #TO DO - Set header to be actual fields we want to collect
-header = ['Title', 'BGG ID', 'Min Player', 'Max Player']
+header = ['Title', 'PAX ID', 'BGG ID', 'Min Player', 'Max Player']
 print(header)
 header.append('BGG ID')
 for rows in reader:
     PAXnames.append(rows[0])
+    PAXids.append(rows[4])
     BGGids.append(rows[5])
 
 
@@ -50,20 +53,29 @@ for count, IDs in enumerate(BGGids):
     if (count+1)%100 == 0:
         URL_args = ','.join(list(map(str,ID_range))) 
         url = base_url + URL_args  
-        ID_range = []
-
+        print(url)
+        
         #Use requests and BeautifulSoup to extract and read XML. Separaetly pull XML tags: (1) of <name> with type "primary", (2) of <item>
         response = requests.get(url)
         soup = BeautifulSoup(response.text, 'lxml')
-        soup_names = soup.find_all('name', type = 'primary') 
-        soup_items = soup.find_all('item') 
+        soup_min = soup.find_all('minplayers') 
+        soup_max = soup.find_all('maxplayers') 
         #TO DO - Continue adding soup objects for desired metadata fiels
 
-        #TO DO - Regex processing of soup objects
+        #Regex processing of soup objects. Include BGG_id sequence from ID_range to use as index value of PAXnames/PAXids when writing csv
+        for min_player, max_player, BGG_id in zip(soup_min, soup_max, ID_range):
+            game_min_player = min_player.attrs['value']
+            game_max_player = max_player.attrs['value']
 
-        #TO DO - Writing rows of CVS
+            #Write row to CSV only if game has a BGG ID#
+            if BGG_id != 0:
+                DataWriter.writerow([PAXnames[BGGids.index(BGG_id)], PAXids[BGGids.index(BGG_id)], BGG_id, game_min_player, game_max_player ])
+                #print(min_player, max_player, BGG_id)
+                print(PAXnames[BGGids.index(BGG_id)])
 
-        print(soup_names)
         sleep(randint(15,30))  #sleep to prevent rate-limit or DOS
+
+        # Clear out ID_range to accept a fresh set of 100 IDs
+        ID_range = []
 
 BGGmetadata.close()
