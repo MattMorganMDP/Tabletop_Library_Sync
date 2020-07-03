@@ -8,15 +8,14 @@ from random import randint  #generate random integers, used in randomizing wait 
 import openpyxl #used in creating and writing to .xlsx filtes
 from pathlib import Path #used in handling Path objects
 import os #used in reading and creating directory for output
+import sys #used to quit script
 
 #########################################################
 # Function to extract info from BGG and perform file I/O
 #########################################################
 
-def BGGextract(filename, first_item, last_item):
+def BGGextract():
     
-    print('Script will extract IDs beginning with #' + str(first_item) + ' and ending with #' + str(last_item))
-
     ####################################################
     # Configure directory and file in which to save info
     ####################################################
@@ -26,31 +25,41 @@ def BGGextract(filename, first_item, last_item):
     # if BGGpath.exists() == False:
     #    os.makedirs(BGGpath)
     # os.chdir(BGGpath)
-    
+    filename = 'BGG_ID_spreadsheet_complete.xlsx'
+
     #Check if file exists, then either open it or create a new blank workbook, and set active sheet. If created new wb, configure sheet name and headers
     if Path(filename).is_file():
-        print ('File exists. Loading existing workbook.')
+        print ('Loading existing BGG ID# index for updating... [This may take some time, ~20s]')
         wb = openpyxl.load_workbook(filename)
         sheet = wb.active
         row_counter = sheet.max_row + 1 #Initialize incremental value for last written row. 
         #This is necessary as some BGG IDs will be skipped, and there will not be a 1-for-1 relationship to past written ID#s to # of rows written
         print('# of rows previously written: ' + str(row_counter))
 
-        #For existing files, set the first item by reading in BGG ID# of last written row
-        first_item = sheet.cell(row = sheet.max_row, column = 1).value
-        print('First BGG value to attempt is: ' + str(first_item))
-
+        #For existing files, set the first item by reading in BGG ID# of last written row. Set last item by calling function to extract highest possible value from GeekFeed RSS
+        first_item = sheet.cell(row = sheet.max_row, column = 1).value + 1
+        last_item = BGGmaxitem()
+        print('Script will extract IDs beginning with #' + str(first_item) + ' and ending with #' + str(last_item))
+        print('\n') 
+        
     else:
-        print ('File does not exist. Creating new workbook.')
-        wb = openpyxl.Workbook()
-        sheet = wb.active
+        choice = input('File does not exist. Would you like to create a new workbook? Warning: This script will take up to 24 hours to execute. [Y/N]: ')
+        if choice == 'Y':
+            print('Creating new workbook...' + '\n')
+            wb = openpyxl.Workbook()
+            sheet = wb.active
+            first_item = 1
+            last_item = BGGmaxitem()
 
-        #Set sheet title and header row.
-        sheet.title = 'BGG Game IDs'
-        sheet['A1'] = 'BGG ID'
-        sheet['B1'] = 'Game Title'
-        row_counter = 1 # Set rowcounter flag to begin at start of sheet. Acts as global variable to hold position of future row batches to be written.
-
+            #Configure new file's sheet title and header row.
+            sheet.title = 'BGG Game IDs'
+            sheet['A1'] = 'BGG ID'
+            sheet['B1'] = 'Game Title'
+            row_counter = 1 # Set rowcounter flag to begin at start of sheet. Acts as global variable to hold position of future row batches to be written.
+        else:
+            print('Exiting script')
+            sleep(2)
+            sys.exit()
 
     ######################################################
     # Perform exraction of info from BGG and write to file
@@ -92,7 +101,8 @@ def BGGextract(filename, first_item, last_item):
                 sheet.cell(row = rowNum + row_counter, column = 1).value = int(game_id_num)
                 sheet.cell(row = rowNum + row_counter, column = 2).value = title
         row_counter = row_counter + (len(soup_names)) #record # of rows written in this batch, incrementing the global row count variable
-                            
+        
+        print('\n' + 'Attempting to load next batch of BGG IDs. Will take 15-30 seconds...' '\n')        
         sleep(randint(15,30))  #sleep to prevent rate-limit or DOS
 
     wb.save(str(filename))   #saves the file
@@ -129,23 +139,4 @@ def BGGmaxitem():
 ############################################
 
 if __name__ == "__main__":
-    
-    #Determine range of BGG ID #s to extract. If integers are not provided for inputs, set range from 1 to highest number available on BGG website
-    
-    #Set filename, and if necessary, set first item as 1
-    filename = input("Enter the filename of past BGG titles export, typically BGG_ID_spreadsheet_complete.xlsx, or leave blank to create new: ")
-    if filename == '':
-        filename = 'BGG_ID_spreadsheet_complete.xlsx'
-        first_item = 1
-    else:
-        first_item = 'max_row'
-
-    #Set upper bound of ID# range
-    try:
-        last_item = int(input('Enter highest BGG ID value to capture. Blank input will set script to max ID # available: ')) 
-    except:
-        last_item = BGGmaxitem() #call function to extract highest possible ID# from GeekFeed's RSS
-
-     
-    #Call the main function for extracting data from BGG, passing all of the above variables
-    BGGextract(filename, first_item, last_item)
+    BGGextract()
