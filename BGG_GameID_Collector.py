@@ -133,9 +133,9 @@ if __name__ == "__main__":
     #Determine range of BGG ID #s to extract. If integers are not provided for inputs, set range from 1 to highest number available on BGG website
     
     #Set filename, and if necessary, set first item as 1
-    filename = input("Enter the filename of past BGG titles export, or leave blank to create new. Please use / as backslash if typing in directory path: ")
+    filename = input("Enter the filename of past BGG titles export, typically BGG_ID_spreadsheet_complete.xlsx, or leave blank to create new: ")
     if filename == '':
-        filename = 'BGG_ID_spreadsheet.xlsx'
+        filename = 'BGG_ID_spreadsheet_complete.xlsx'
         first_item = 1
     else:
         first_item = 'max_row'
