@@ -7,7 +7,7 @@ Title,Publisher,Valuable,Count,IDnum
 "5 Minute Marvel","Spin Master",false,1,3191
 "51st State: Master Set","Portal Games",false,1,1724
 "5211","Next Move Games",false,1,3290
-"6 Nimmt!","Mayfair Games",false,1,1291
+"6 nimmt!","Mayfair Games",false,1,1291
 "7 Wonders","Repos Production",true,7,2873
 "7 Wonders","Asmodee",true,2,1971
 "7 Wonders","Asmodee",true,2,5
@@ -15,10 +15,10 @@ Title,Publisher,Valuable,Count,IDnum
 "7 Wonders With Armada","Repos Production",true,1,2919
 "A Castle For All Seasons","Rio Grande Games",false,1,8
 "A Fake Artist Goes To New York","Oink Games",false,2,2429
-"A Feast For Odin","Z-Man Games",false,1,1811
+"A Feast for Odin","Z-Man Games",false,1,1811
 "A Game Of Thrones Catan","Fantasy Flight Games",false,1,2061
 "A Game Of Thrones Catan","Fantasy Flight Games",false,1,2307
-"A Handful Of Stars","Treefrog Games",false,1,1996
+"A Handful of Stars","Treefrog Games",false,1,1996
 "A Pleasant Journey To Neko","The Wood Games",true,1,2650
 "A War Of Whispers","Starling Games",false,1,3189
 "Abandon All Artichokes","Gamewright",true,1,3568
@@ -46,7 +46,7 @@ Title,Publisher,Valuable,Count,IDnum
 "Anomia Kids","Everest",false,1,3330
 "Antiquity","Splotter",true,1,2149
 "Apotheca","Knapsack",false,1,1637
-"Apples To Apples","Hasbro",false,1,37
+"Apples to Apples","Hasbro",false,1,37
 "Appletters","Bananagrams",false,1,40
 "Aquarius","Looney Labs",false,1,42
 "Aquatica","Cosmo Drone Games",false,3,3408
@@ -66,24 +66,24 @@ Title,Publisher,Valuable,Count,IDnum
 "Atlantis Rising","Elf Creek Games",false,1,3497
 "Aura","Breaking Games",false,1,1646
 "Ausser Rand & Band","Zoch Zum Spielen",false,3,3459
-"Automata Noir","Level 99 Games",false,1,1844
+"Automata NOIR","Level 99 Games",false,1,1844
 "Avalon","Indie Boards & Cards",false,1,2828
 "Azul","Next Move Games",true,3,2017
-"Azul","Next Move Games",true,2,2134
 "Azul","Next Move Games",true,2,2311
+"Azul","Next Move Games",true,2,2134
 "Azul Summer Pavilion","Next Move Games",false,3,3442
 "Babylonia","Ludonova",true,1,3409
 "Bad Bones","Sit! Down!",false,1,2684
-"Bad Medicine","Formal Ferret Games",false,1,1302
 "Bad Medicine","Formal Ferret Games",false,1,2507
+"Bad Medicine","Formal Ferret Games",false,1,1302
 "Bahamas","Matagot",false,1,3267
 "Bamboleo","Zoch Zum Spielen",true,1,3002
 "Banana Bandits","Capstone Games",false,1,1768
 "Bananagrams","Bananagrams",false,2,67
 "Bargain Quest","Jonathan Ying",false,1,2089
 "Barrage","Cranio Creations",false,3,3543
-"Batman: The Animated Series Dice Game","Steve Jackson Games",false,1,1498
 "Batman: The Animated Series Dice Game","Cryptozoic",false,1,3501
+"Batman: The Animated Series Dice Game","Steve Jackson Games",false,1,1498
 "Battle Con: Connection Fighting","Level 99 Games",false,1,3562
 "Battle For Rokugan","Fantasy Flight Games",false,1,2070
 "Battle Of The Nations 1813","Clicker Spiele",false,2,3453
@@ -117,7 +117,7 @@ Title,Publisher,Valuable,Count,IDnum
 "Borderlands Tiny Tina's Robot Tea Party","Xyz Game Labs",false,2,2905
 "Bosk","Floodgate Games",false,2,3407
 "Boss Monster: The Dungeon Building Card Game","Brotherwise Games",false,1,1141
-"Bottom Of The 9th","Dice Hate Me Games",false,1,1407
+"Bottom of The 9th","Dice Hate Me Games",false,1,1407
 "Braintopia","Asmodee",false,1,3054
 "Brick Party","Post Scriptum",false,1,1600
 "Brikks","Schmidt Spiel",false,1,2686
@@ -135,7 +135,7 @@ Title,Publisher,Valuable,Count,IDnum
 "Butterfly","Rio Grande Games",false,1,3096
 "Byzanz","Renegade Game Studios",false,1,2116
 "Cactys","Jordan Draper Games",false,1,3544
-"Cadwallon: City Of Thieves","Fantasy Flight Games",false,1,112
+"Cadwallon: City of Thieves","Fantasy Flight Games",false,1,112
 "Cahoots","Mayday Games",false,1,3119
 "Calimala","Slackfire",false,1,2021
 "Call Of Cthulhu: The Card Game","Fantasy Flight Games",false,1,3131
@@ -150,8 +150,8 @@ Title,Publisher,Valuable,Count,IDnum
 "Car Wars: The Card Game","Steve Jackson Games",false,1,1489
 "Caravan","Rio Grande Games",false,1,3303
 "Carcassonne","Z-Man Games",true,1,1840
-"Carcassonne","Z-Man Games",true,3,1958
 "Carcassonne","Z-Man Games",true,8,2793
+"Carcassonne","Z-Man Games",true,3,1958
 "Carcassonne Safari","Z-Man Games",false,1,2306
 "Carcassonne: The Discovery","Rio Grande Games",false,1,128
 "Cardline: Globetrotter","Asmodee",false,1,1163
@@ -167,8 +167,8 @@ Title,Publisher,Valuable,Count,IDnum
 "Castellan","Steve Jackson Games",false,2,1151
 "Castello Methoni","Mandoo Games",false,2,3404
 "Castle Rampage","Pegasus Spiele",false,2,2502
-"Castles Of Caladale","Renegade Game Studios",false,4,3232
 "Castles Of Caladale","Renegade Game Studiospax86392c",false,1,3286
+"Castles Of Caladale","Renegade Game Studios",false,4,3232
 "Castles Of Mad King Ludwig","Bezier Games",false,1,2481
 "Cat Cafe","Mandoo Games",false,3,3445
 "Cat Lady","Aeg",true,6,2751
@@ -200,18 +200,18 @@ Title,Publisher,Valuable,Count,IDnum
 "Circular Reasoning: The Well Of Power","Breaking Games",false,1,2101
 "Cities: Skylines","Kosmos",false,3,3406
 "City Of Remnants","Plaid Hat Gamesttl1000z",false,1,3132
-"City Of The Build Shoulders (With Burden Of Destiny)","Parallel",false,2,2982
-"Civ: Carta Impera Victoria","Ludonaute",false,1,2112
+"City Of The Build Shoulders (with Burden Of Destiny)","Parallel",false,2,2982
+"CIV: Carta Impera Victoria","Ludonaute",false,1,2112
 "Clack!","Amigo Games",true,1,3041
-"Clank! A Deck-Building Adventure (Includes Acquisitions Inc. Expansion)","Renegade Game Studios",true,2,2880
+"Clank! A Deck-building Adventure (includes Acquisitions Inc. Expansion)","Renegade Game Studios",true,2,2880
 "Clank!: A Deck-Building Adventure","Renegade Game Studios",true,2,1962
-"Clans Of Caledonia","Karma Games",true,1,2041
+"Clans of Caledonia","Karma Games",true,1,2041
 "Clip Cut Parks","Renegade Game Studios",false,7,3470
 "Cloudspire","Chip Theory Games",false,1,3207
 "Clue Game Of Thrones","Usaopoly",false,1,3174
 "Codenames","Czech Games",true,1,2939
-"Codenames","Cge",true,3,1317
 "Codenames","Cge",true,2,1586
+"Codenames","Cge",true,3,1317
 "Codenames: Marvel","Usaopoly",false,1,1897
 "Cogs And Commissars","Atlas Games",false,2,2305
 "Coimbra","Eggertspiele",true,1,2482
@@ -227,7 +227,7 @@ Title,Publisher,Valuable,Count,IDnum
 "Concept Kids: Animals","Repos Production",false,3,2338
 "Concordia","Rio Grande Games",false,1,3312
 "Condottiere","Z-Man Games",false,2,2477
-"Confusion: Espionage And Deception In The Cold War","Stronghold Games",true,1,186
+"Confusion: Espionage and Deception in the Cold War","Stronghold Games",true,1,186
 "Convert","Breaking Games",false,2,1434
 "Copenhagen","Queen",false,1,3065
 "Copper Island","Capstone Games",false,3,3455
@@ -242,8 +242,8 @@ Title,Publisher,Valuable,Count,IDnum
 "Cowboy Bebop: Boardgame Boogie","Jasco",false,1,3370
 "Crap Or Slap! What Would You Do?","Twilight Creations",false,1,2925
 "Critical Mass: Raijin Vs. Archon","Arcane Wonders",false,1,2532
-"Crossover Crisis","Cryptozoic",false,1,2618
 "Crossover Crisis","Cryptozoic",false,1,2611
+"Crossover Crisis","Cryptozoic",false,1,2618
 "Crosstalk","Nauvoo Games",false,1,2565
 "Crown De Fleur","Centennial Games",false,1,2799
 "Crown Of Emara","Pegasus Spiele",true,2,2491
@@ -253,7 +253,7 @@ Title,Publisher,Valuable,Count,IDnum
 "Crystal Palace","Capstone Games",false,3,3452
 "Crystallo","Zafty Games",false,3,3557
 "Cubissimo","Djeco",false,2,3021
-"Cuisine A La Card","Inmotion",false,2,1347
+"Cuisine a la Card","Inmotion",false,2,1347
 "Cult Following","Win Go",false,1,3540
 "Curios","Aeg",false,1,2996
 "Curli Kuller","Pegasus Spiele",false,1,2498
@@ -272,13 +272,13 @@ Title,Publisher,Valuable,Count,IDnum
 "Darkness","Green Meadown Games",false,2,2894
 "Dead Fellas","Ninja Division",false,1,1198
 "Dead Last","Smirk & Dagger Games",false,1,1926
-"Dead Of Winter: A Crossroads Game","Plaid Hat Games",false,1,1558
+"Dead of Winter: A Crossroads Game","Plaid Hat Games",false,1,1558
 "Death Wish","Zafty Games",false,1,1805
 "Deception: Murder In Hong Kong","Grey Fox Games",false,5,2062
 "Deep Blue","Days Of Wonder",false,4,2991
 "Deep Sea Adventure","Oink Games",true,2,2425
 "Deluxe Pit","Winning Moves Games",false,1,3045
-"Descent: Journeys In The Dark (Second Edition)","Fantasy Flight Games",false,1,1833
+"Descent: Journeys in the Dark (Second Edition)","Fantasy Flight Games",false,1,1833
 "Destination X","Aporta Games",false,1,2955
 "Detective Club","Blue Orange Games",false,2,3060
 "Diamonds","Stronghold Games",false,1,1685
@@ -286,7 +286,7 @@ Title,Publisher,Valuable,Count,IDnum
 "Dice Throne: Season One","Roxley Games",false,1,2209
 "Dice Throne: Season One","Roxley Games",false,1,1847
 "Dice Throne: Season Two","Roxley Games",false,2,2588
-"Dice Throne: Season Two (Gunslinger V Samurai)","Roxley Games",false,1,2965
+"Dice Throne: Season Two (gunslinger V Samurai)","Roxley Games",false,1,2965
 "Die Crew","Kosmos",true,2,3434
 "Die Inseln Im Nebel","Schmidt Spiele",true,1,3429
 "Die Macher","Spielworxx",true,1,3419
@@ -357,7 +357,7 @@ Title,Publisher,Valuable,Count,IDnum
 "Eschaton","Archon Games",true,1,1740
 "Eschaton + Expansion","Archon Games",false,1,2822
 "Ethnos","Spaghetti Western Games",false,3,1759
-"Euphoria: Build A Better Dystopia","Stonemaier Games",false,1,1457
+"Euphoria: Build a Better Dystopia","Stonemaier Games",false,1,1457
 "Europa Base Alpha","Wizkids",false,1,3356
 "Everdell","Starling Games",false,3,2253
 "Evil Intent","Kraken Games",false,1,1509
@@ -377,8 +377,8 @@ Title,Publisher,Valuable,Count,IDnum
 "Extraordinary Adventures: Pirates!","Forbidden Games",false,2,3217
 "Eye My Favorite Things","Surume Days",true,1,2663
 "Eye See Game","Amigo",false,1,3250
-"Fae","Z-Man Games",false,1,2151
 "Fae","Z-Man Games",false,1,2786
+"Fae","Z-Man Games",false,1,2151
 "Fafnir","Oink Games",true,3,3431
 "Fairy Mischief","Fun",false,1,3168
 "Fairy Tale","Z-Man Games",false,1,1774
@@ -393,31 +393,31 @@ Title,Publisher,Valuable,Count,IDnum
 "Farlight","Game Salute",false,2,3007
 "Farm Rescue","Brain Games",false,2,3233
 "Fast Sloths","Stronghold Games",true,1,3447
-"Fate Of The Elder Gods","Greater Than Games",false,1,1676
+"Fate of The Elder Gods","Greater Than Games",false,1,1676
 "Favelas","Wizkids",false,1,2044
 "Fealty","Asmadi Games",false,1,298
 "Fear","Stronghold Games",false,1,2866
 "Fire In The Library","Tony Miller And John Prather",false,1,2547
 "Fire Tower","Runaway Parade Games",false,6,3506
-"Fireball Island: The Curse Of Vul-Kar","Restoration Games",true,2,2766
+"Fireball Island: The Curse Of Vul-kar","Restoration Games",true,2,2766
 "Firefly Adventures: Brigands And Browncoats","Gale Force Nine",false,1,2176
 "Firefly: The Game","Gale Force Nine",false,1,2177
 "Firenze","Pegasus Spiele",false,1,1585
 "Fireworks","Renegade Game Studios",false,1,2462
 "Five Seals Of Magic","Igrology",false,1,3220
 "Five Tribes The Djinns Of Naqala","Days Of Wonder",false,1,2787
-"Flamme Rouge","Stronghold Games",true,1,1954
 "Flamme Rouge","Stronghold Games",true,1,1969
+"Flamme Rouge","Stronghold Games",true,1,1954
 "Flash Point: Fire Rescue","Indie Boards & Cards",false,1,305
 "Flatline","Renegade Game Studios",false,1,1640
 "Flee","Stronghold Games",false,1,2868
 "Flick Fleck","Zoch",false,1,2372
 "Flick Wars","Breaking Games",false,1,3529
-"Flip Over Frog","Hub Games",false,5,3049
 "Flip Over Frog","Gotta2",false,3,2405
+"Flip Over Frog","Hub Games",false,5,3049
 "Flip Ships","Renegade Game Studios",false,2,1941
-"Flotilla","Wizkids Games",false,1,3368
 "Flotilla","Wizkids",false,3,3384
+"Flotilla","Wizkids Games",false,1,3368
 "Flotsam Fight","Oink Games",false,1,2255
 "Fluff","Bananagrams",false,1,2516
 "Fluxx","Looney Labs",false,1,307
@@ -425,8 +425,8 @@ Title,Publisher,Valuable,Count,IDnum
 "Folklore The Affliction","Greenbrier Games",false,1,2319
 "Foodies","Cmon",false,1,2968
 "Fool!","Stronghold Games",false,1,2854
-"Fool's Gold","Rock Paper Scissors Games",false,1,3172
 "Fool's Gold","Passport Game Studios",false,1,1477
+"Fool's Gold","Rock Paper Scissors Games",false,1,3172
 "For Sale","Eagle-Gryphon Games",true,1,1948
 "For Sale","Gryphon Games",true,1,3140
 "For The Crown","Victory Point Games",false,1,2999
@@ -453,7 +453,7 @@ Title,Publisher,Valuable,Count,IDnum
 "Fuji Flush","Stronghold Games",false,2,1951
 "Fuji Koro","Game Brewer",false,3,3454
 "Funky Chicken Card Game","Happy Planet",false,1,2819
-"Fury Of Dracula","Fantasy Flight Games",true,1,1318
+"Fury of Dracula","Fantasy Flight Games",true,1,1318
 "Fuse","Renegade Game Studios",false,14,1641
 "Futuropia","Stronghold Games",true,1,2668
 "Gaia Project","Z-Man Games",true,1,2047
@@ -477,17 +477,17 @@ Title,Publisher,Valuable,Count,IDnum
 "Giro Galoppo","Rio Grande Games",true,1,3075
 "Give Me The Brain!","Cheapass Games",false,1,2375
 "Glen More Chronicles","Funtails",false,2,3450
-"Gloom In Space","Atlas Games",false,1,1521
+"Gloom in Space","Atlas Games",false,1,1521
 "Gloomy Graves","Renegade Game Studios",true,1,3520
 "Glux","Queen Games",false,1,1705
 "Go Cuckoo!","Haba",false,1,1545
 "Go Go Gelato!","Blue Orange Games",true,1,1784
-"Goat'n'Goat","Okazu Brand",true,2,3413
+"Goat'n'goat","Okazu Brand",true,2,3413
 "Gobbit","Oldchap Games",false,3,3537
 "Gobblet Gobblers","Blue Orange Games",false,1,1808
 "God Of War: The Card Game","Cmon",false,2,2984
-"Going Postal","Song Yijie",true,1,3490
 "Going Postal","Seitlich Games",true,2,3390
+"Going Postal","Song Yijie",true,1,3490
 "Good & Bad Ghosts","Kod Kod",false,3,3552
 "Good Critters","Arcane Wonders",false,1,2525
 "Good Dog, Bad Zombie","Make Big Things",false,3,2599
@@ -505,15 +505,15 @@ Title,Publisher,Valuable,Count,IDnum
 "Hako Onna","Wizkids",false,1,3342
 "Hanamikoji","Emperors4",true,1,2451
 "Hand Of Fate: Ordeals","Rule & Make",false,1,2435
-"Hannibal: Rome Vs. Carthage","Valley Games",false,1,364
+"Hannibal: Rome vs. Carthage","Valley Games",false,1,364
 "Happy Salmon","North Star Games",false,1,2570
 "Hardback","Fowers Games",false,1,1871
 "Harry Potter: Hogwarts Battle","Usaopoly",true,1,1659
 "Harvest","Tasty Minstrel Games",false,1,1902
 "Hasp","Agie",false,1,3285
 "Hatsuden","Itten",false,1,2360
-"Hawaii","Rio Grande Games",false,1,365
 "Hawaii","Z-Man Games",false,1,3161
+"Hawaii","Rio Grande Games",false,1,365
 "Healthy Heart Hospital","Victory Point Games",false,1,2833
 "Heap","Privateer Press",false,1,366
 "Heaven & Ale","Eggerstpiele",true,1,2031
@@ -527,7 +527,7 @@ Title,Publisher,Valuable,Count,IDnum
 "Herbalism","Emperors4",false,1,2087
 "Here Comes The Dog","Itten",true,2,2369
 "Hero Realms","White Wizard Games Llc",false,1,1575
-"Hex Hex Xl","Smirk & Dagger Games",false,1,1927
+"Hex Hex XL","Smirk & Dagger Games",false,1,1927
 "Hexix","Hexix Team",false,1,2887
 "Hey, That's My Fish!","Fantasy Flight Games",false,1,3047
 "Hey, That's My Fish!","Mayfair Games",true,2,382
@@ -546,8 +546,8 @@ Title,Publisher,Valuable,Count,IDnum
 "Hurlyburly","La Mame Games",false,3,3381
 "I Say, Holmes!","Victory Point Games",false,1,3017
 "Ice Cool","Brain Games",true,2,1608
-"Ill-Tempered Tikis","Wild East Game Company",false,1,3177
-"Ill-Tempered Tikis","The Wild East Game Company",false,1,3181
+"Ill-tempered Tikis","The Wild East Game Company",false,1,3181
+"Ill-tempered Tikis","Wild East Game Company",false,1,3177
 "Illusion","Pandasaurus",false,2,2562
 "Ilos","La Boite De Jeu",true,1,2026
 "Imagine","Gamewright",false,1,1596
@@ -558,7 +558,7 @@ Title,Publisher,Valuable,Count,IDnum
 "Import / Export","Dark Flight",true,1,1990
 "Impulse","Asmadi Games",false,1,1251
 "In A World Of Dinosaurs","Golden Bell Games",false,1,2912
-"In The Year Of The Dragon","Ravensburger",false,1,1681
+"In The Year of The Dragon","Ravensburger",false,1,1681
 "Indian Summer","Stronghold Games",true,1,1991
 "Indulgence","Restoration Games",false,1,1796
 "Inhabit The Earth","Huchi And Friends",false,1,3565
@@ -573,14 +573,14 @@ Title,Publisher,Valuable,Count,IDnum
 "Ishtar: Gardens Of Babylon","Iello",false,1,3340
 "Island Hopper","Eagle-Gryphon Games",false,1,1973
 "Isle Of Monsters","Mayday Games",false,1,3193
-"Isle Of Skye: From Chieftain To King","Mayfair Games",true,1,1294
+"Isle of Skye: From Chieftain to King","Mayfair Games",true,1,1294
 "Islebound","Red Raven Games",false,1,1475
 "Istanbul","Aeg",true,1,1140
 "Isthar: Gardens Of Babylon","Iello",true,1,2972
 "It Dies With Me","Breaking Games",false,1,2770
 "It's A Wonderful World","Lucky Duck Games",false,3,3460
-"It's Blunderful","The United States Playing Card Company",false,2,3551
 "It's Blunderful","Bicycle",false,1,3246
+"It's Blunderful","The United States Playing Card Company",false,2,3551
 "Jaipur","Space Cowboys",true,1,3037
 "Jetpack Joyride","Lucky Duck Games",false,3,3425
 "Joking Hazard","Explosm",true,2,1633
@@ -596,19 +596,19 @@ Title,Publisher,Valuable,Count,IDnum
 "Karuba","Haba",true,1,1538
 "Kayuyk","Lifestyle Studio",true,2,3418
 "Kepler-3042","Renegade Game Studios",false,1,1810
-"Kerala: The Way Of The Elephant","Kosmos",true,1,1623
+"Kerala: The Way of the Elephant","Kosmos",true,1,1623
 "Key Flow","R&D Games",true,1,2682
-"Keyflower","R&D Games",true,1,432
 "Keyflower","R&D Games",true,1,1578
+"Keyflower","R&D Games",true,1,432
 "Keyper","R&D Games",true,1,2038
 "Khan Of Khans","Chaosium Inc",false,1,1813
-"Kick-Ass","Cmon",false,1,2326
+"Kick-ass","Cmon",false,1,2326
 "Killer Bunnies And The Quest For The Magic Carrot","Playroom Entertainment",false,1,3137
 "Kilt Castle","Zoch",false,1,2364
-"King Of New York","Iello",true,1,1170
+"King of New York","Iello",true,1,1170
 "King Of Tokyo","Iello",true,1,2302
 "King Of Tokyo","Iello",true,3,2086
-"King Of Tokyo","Iello",true,1,1071
+"King of Tokyo","Iello",true,1,1071
 "King's Forge","Starling Games",false,2,3082
 "Kingdom Builder","Queen Games",true,1,1706
 "Kingdomino","Blue Orange Games",true,17,1970
@@ -617,14 +617,14 @@ Title,Publisher,Valuable,Count,IDnum
 "Kitchen Rush","Artipia Games",false,1,2043
 "Kobold's Ate My Baby! Knuckle Sammich Card Game","Ninth Level",false,1,2922
 "Kodama 3d","Indie Boards & Cards",false,1,3503
-"Kodama: The Tree Spirits","Indie Boards & Cards",false,1,1391
 "Kodama: The Tree Spirits","Indie Boards & Cards",false,2,1504
+"Kodama: The Tree Spirits","Indie Boards & Cards",false,1,1391
 "Koi","Smirk & Laughter Games",false,2,2492
 "Kokoro: Avenue Of The Kodama","Indie Boards & Cards",false,2,3138
 "Kraftwagen","Stronghold Games",true,1,1731
 "Kung Fu","Good Game",false,3,3440
-"Kung-Fu Zoo","Wizkids",false,1,2581
-"L.L.A.M.A Card Game","Amigo Games",true,1,3071
+"Kung-fu Zoo","Wizkids",false,1,2581
+"L.l.a.m.a Card Game","Amigo Games",true,1,3071
 "La Stanza","Quined Games",false,1,3089
 "Labyrinth","Ravensburger",false,2,450
 "Lagerstatten","Analog Lunchbox",true,1,1992
@@ -663,11 +663,11 @@ Title,Publisher,Valuable,Count,IDnum
 "Macaryoshka","Natriumlamp Games",true,1,3410
 "Machi Koro","Pandasaurus",true,3,1242
 "Machi Koro 5th Anniversary Edition","Pandasaurus",true,1,3519
-"Mag-O-Mag The Magnetic Labyrinth","Kosmos",false,1,1715
+"Mag-o-mag The Magnetic Labyrinth","Kosmos",false,1,1715
 "Mage Knight Board Game","Wizkids",false,1,3514
 "Magic The Gathering: Heroes Of Dominaria","Wizkids",false,1,2597
 "Mahardika","Manikmaya Games",true,1,2628
-"Majesty: For The Realm","Z-Man Games",true,1,2027
+"Majesty: For the Realm","Z-Man Games",true,1,2027
 "Majesty: For The Realm","Z-Man Games",true,1,3314
 "Majolica","Blue Magpie Games",true,1,2696
 "Mangaka","Mock Man",false,1,3127
@@ -703,8 +703,8 @@ Title,Publisher,Valuable,Count,IDnum
 "Million Dollars But...","Rooster Teeth",false,1,2621
 "Missile Command","Idw Games",false,1,2918
 "Miyagi","Haba",true,1,3240
-"Modern Art","Cmon",true,1,1709
 "Modern Art","Cmon",true,1,2809
+"Modern Art","Cmon",true,1,1709
 "Modern Art","Cmon",true,3,2758
 "Moneybags","Oink Games",false,2,2266
 "Monolith Arena","Portal Games",false,1,2701
@@ -733,13 +733,13 @@ Title,Publisher,Valuable,Count,IDnum
 "Munchkin Steampunk","Steve Jackson Games",false,1,1267
 "Munchkin Zombies","Steve Jackson Games",false,1,551
 "Muse","Quick Simple Fun Games",false,2,2297
-"My First Stone Age","Z-Man Games",false,1,3059
 "My First Stone Age","Z-Man Games",false,1,1552
+"My First Stone Age","Z-Man Games",false,1,3059
 "My Little Scythe","Stonemaier Games",false,1,2336
 "My Little Scythe","Stonemaier Games",false,1,2212
 "Mysterium","Asmodee",true,1,1832
 "Mystery House","Cranio Creations",false,3,3251
-"Mystery Of The Abbey","Days Of Wonder",false,1,1943
+"Mystery of The Abbey","Days Of Wonder",false,1,1943
 "Mystery Of The Temples","Deep Water Games",false,1,2952
 "Naga Raja","Hurrican",false,1,3006
 "Namiji","Fun Forge",false,3,3428
@@ -753,25 +753,25 @@ Title,Publisher,Valuable,Count,IDnum
 "Nemo Rising","Wizkids",false,1,3353
 "Nemo's War","Victory Point Games",false,2,2859
 "Neom","Lookout Games",false,1,2805
-"Neta-Tanka","La Boite De Jeu",false,1,3273
+"Neta-tanka","La Boite De Jeu",false,1,3273
 "Never Bring A Knife","Atlas Games",false,1,3558
 "New Angeles","Fantasy Flight Games",false,1,1556
 "New Bedford","Dice Hate Me Games",false,1,1423
 "New Corp Order","2 Tomatoes",false,1,2804
 "Newfoundland Jam","Drinking Quest",false,2,3534
 "Newfoundland Jam","Jason Anarchy Games",false,2,2810
-"Newton","Cranio Creations",false,3,3539
 "Newton","Cmon",false,2,2268
+"Newton","Cranio Creations",false,3,3539
 "Nexus Infernum","Archon Games",true,4,2959
 "Nine Tiles Panic","Oink Games",true,2,3492
 "Ninja Burger","Steve Jackson Games",false,1,1491
 "Ninja Versus Ninja","Out Of The Box",false,1,569
 "Nitro Glyxerol","Zoch",false,1,2488
 "Niwa","Djeco",false,1,3056
-"Nmbr 9","Z-Man Games",true,1,2840
+"NMBR 9","Z-Man Games",true,1,2840
 "No Honor Among Thieves","Carpe Omnis Games",false,1,2541
 "Noctiluca","Z-Man Games",false,1,2842
-"Noir: Deductive Mystery Game","Level 99 Games",false,1,1516
+"NOIR: Deductive Mystery Game","Level 99 Games",false,1,1516
 "Nokosu Dice","Engames",true,3,3412
 "Norsaga","Meromorph Games",false,1,2184
 "Northern Pacific","Rio Grande Games",true,1,3094
@@ -790,7 +790,7 @@ Title,Publisher,Valuable,Count,IDnum
 "Offshore","Aporta Games",false,3,3426
 "Ogre","Steve Jackson Games",false,1,1522
 "Ogre Under","Mixlore",false,2,3086
-"Okanagan: Valley Of The Lakes","Asmodee",true,1,2018
+"Okanagan: Valley of the Lakes","Asmodee",true,1,2018
 "Okey Dokey","Tasty Minstrel Games",false,1,1901
 "Old Masters","Keep Exploring Games",true,1,3461
 "Omerta","Helvetiq",false,3,3491
@@ -798,12 +798,12 @@ Title,Publisher,Valuable,Count,IDnum
 "On The Origin Of Species","Mont Taber",false,1,3327
 "On The Underground","Ludicreations",false,3,3405
 "On Tour","Boardgametables.Com",false,4,2269
-"Once Upon A Time: The Storytelling Card Game","Atlas Games",false,1,2153
+"Once Upon a Time: The Storytelling Card Game","Atlas Games",false,1,2153
 "One Deck Dungeon","Asmadi Games",false,1,1530
 "One Night Ultimate Werewolf","Bezier Games",true,1,1137
 "Onitama","Arcane Wonders",true,1,1612
 "Orbis","Space Cowboys",false,1,2646
-"Orc-Lympics","Brain Games",false,1,3372
+"Orc-lympics","Brain Games",false,1,3372
 "Orchard Ocean","Analog Lunchbox",true,1,3389
 "Orcs Must Die! The Board Game: Unchained Edition","Robot Entertainment",false,1,1937
 "Order Of The Gilded Compass","Grey Fox Games",false,1,1769
@@ -834,14 +834,14 @@ Title,Publisher,Valuable,Count,IDnum
 "Partners","Game Inventors",false,1,3190
 "Pass The Buck","Happy Badger Studio",false,1,1454
 "Patchistory","Deinko",false,1,3556
-"Patchwork","Lookout Games",true,3,2315
 "Patchwork","Mayfair Games",true,2,1287
+"Patchwork","Lookout Games",true,3,2315
 "Pax Pamir: 2nd Edition","Wehrlegig Games",true,1,2271
 "Pax Porfiriana","Sierra Madre Games",true,1,3479
 "Pax: Transhumanity","Ion Game Design",true,1,3386
 "Peasant Buffet","Wargi Studios",false,2,2896
 "Peasant Buffet: Bad Moon Rising","Golden Bell Games",false,2,3507
-"Penny Arcade: The Game - Gamers Vs. Evil","Fantasy Flight Games",false,1,1357
+"Penny Arcade: The Game - Gamers vs. Evil","Fantasy Flight Games",false,1,1357
 "Penny Lane","Game Salute",false,2,3103
 "Penny Press","Asmadi Games",false,1,1209
 "Perfect Hotel","Jugame Studio",true,1,1988
@@ -872,16 +872,16 @@ Title,Publisher,Valuable,Count,IDnum
 "Poser","Alex Herrity",false,1,3325
 "Potato Man","Zoch",false,1,2401
 "Potion Explosion","Cmon",true,2,2760
-"Potion Explosion","Cmon",true,1,2347
 "Potion Explosion","Cmon",true,1,3525
+"Potion Explosion","Cmon",true,1,2347
 "Pow!","Gigamic",false,1,1701
 "Pow!","Gigamic",false,1,1620
 "Power Grid","Rio Grande Games",true,6,628
 "Power Grid: The First Sparks","Rio Grande Games",false,1,630
 "Praise","Jordan Draper Games",false,1,3545
-"Pret-A-Porter, Third Edition","Portal Games",false,3,3393
-"Pretending To Grownup","Golden Bell Games",false,1,2170
+"Pret-a-porter, Third Edition","Portal Games",false,3,3393
 "Pretending To Grownup","Jason Anarchy Games",false,1,2895
+"Pretending To Grownup","Golden Bell Games",false,1,2170
 "Project Nos","Mind The Gap Studios",false,1,1419
 "Puerto Rico","Rio Grande Games",true,2,637
 "Push Fight","Penny Arcade",true,1,638
@@ -889,8 +889,8 @@ Title,Publisher,Valuable,Count,IDnum
 "Puzzle Strike","Sirlin Games",false,1,639
 "Pylos","Gigamic",false,1,641
 "Pyramid Of Pengqueen","Brain Games",false,1,3105
-"Qe","Boardgametables.Com",false,3,3532
 "Qe","Board Game Tables",false,1,3555
+"Qe","Boardgametables.Com",false,3,3532
 "Quadropolis","Days Of Wonder",false,1,1549
 "Quarantine Z","Alloyedcreations",false,1,3265
 "Quarto","Gigamic",false,1,1661
@@ -901,7 +901,7 @@ Title,Publisher,Valuable,Count,IDnum
 "Qwixx","Gamewright",true,1,2752
 "Raccoon Tycoom","Forbidden Games",false,1,3302
 "Race For The Chinese Zodiac","Starting Player",false,1,2824
-"Race For The Galaxy","Rio Grande Games",true,1,658
+"Race for the Galaxy","Rio Grande Games",true,1,658
 "Ragusa","Brain Crack",true,1,2702
 "Raiatea","Quined Games",false,1,2685
 "Raiders Of The North Sea","Renegade Game Studios",false,1,2120
@@ -920,22 +920,22 @@ Title,Publisher,Valuable,Count,IDnum
 "Reef","Next Move Games",true,1,2433
 "Remember Our Trip","Saashi & Saashi",true,1,3435
 "Renegade","Victory Point Games",false,1,2861
-"Rent A Hero","Aeg",false,1,1146
 "Rent A Hero","Iello",false,1,2522
+"Rent a Hero","Aeg",false,1,1146
 "Rescue Animals","Strawberry Studio",false,1,3050
 "Revolution!","Steve Jackson Games",false,1,673
-"Rex: Final Days Of An Empire","Fantasy Flight Games",false,1,1587
+"Rex: Final Days of an Empire","Fantasy Flight Games",false,1,1587
 "Reykholt","Renegade Game Studios",true,1,2644
 "Rhino Hero","Haba",false,1,3245
 "Rick And Morty Anatomy Park","Cryptozoic",false,1,2609
-"Rick And Morty: Close Rick-Counters Of The Rick Kind","Cryptozoic",false,1,2595
+"Rick And Morty: Close Rick-counters Of The Rick Kind","Cryptozoic",false,1,2595
 "Rick And Morty: Total Rickall","Cryptozoic",false,1,2591
-"Ricochet Robots","Z-Man Games",false,1,678
 "Ricochet Robots","Z-Man Games",false,1,1799
+"Ricochet Robots","Z-Man Games",false,1,678
 "Riff Raff","Zoch",false,1,3274
 "Rise Of Tribes","Breaking Games",false,1,2245
 "Rising Sun","Guillotine Games",false,1,2324
-"Risk 2210 A.D.","Avalon Hill",false,1,3257
+"Risk 2210 A.d.","Avalon Hill",false,1,3257
 "Rival Resturants","Gap Closer Games",false,1,3204
 "Rivals For Catan","Mayfair Games",false,1,687
 "Riverboat","Mayfair Games",true,1,2857
@@ -950,8 +950,8 @@ Title,Publisher,Valuable,Count,IDnum
 "Roll For Your Life, Candyman!","Smirk & Dagger Games",false,1,2469
 "Roll Player","Thunderworks Games",true,1,2446
 "Rooster Rush","Mayday Games",false,1,3120
-"Root","Leder Games",true,1,2299
 "Root","Leder Games",true,12,2276
+"Root","Leder Games",true,1,2299
 "Rumble Nation","Hobby Japan",true,3,3444
 "Rune Stones","Queen Games",false,3,3414
 "Sabordage","Renegade Game Studios",false,1,2126
@@ -966,8 +966,8 @@ Title,Publisher,Valuable,Count,IDnum
 "Samurai Spirit","Fun Forge",false,1,3347
 "Samurai Vassal","Ice Makes",false,1,2453
 "San, Ni, Ichi","Ironmark Games",false,1,1388
-"Sanctum","Czech Games Edition",false,4,3422
 "Sanctum","Cge",false,1,3394
+"Sanctum","Czech Games Edition",false,4,3422
 "Sanitarium","Asmadi Games",false,1,709
 "Santorini","Roxley Games",true,1,1851
 "Scarabya","Blue Orange Games",false,1,2277
@@ -979,11 +979,11 @@ Title,Publisher,Valuable,Count,IDnum
 "Scorpius Freighter","Aeg",false,1,2661
 "Scythe","Stonemaier Games",true,1,1602
 "Second Chance","Stronghold Games",false,1,2907
-"Secret Hitler","Ad Magic",true,2,3003
 "Secret Hitler","Goat Wolf & Cabbage",true,1,1900
+"Secret Hitler","Ad Magic",true,2,3003
 "Secrets","Asmodee",false,1,1825
 "Seikatsu","Idw Games",false,2,1866
-"Sekigahara: The Unification Of Japan","Gmt",false,1,718
+"Sekigahara: The Unification of Japan","Gmt",false,1,718
 "Sellswords","Level 99 Games",false,1,1515
 "Sellswords: Olympus","Level 99 Games",false,1,2082
 "Sengoku Domino","Game Nowa",false,1,3554
@@ -996,11 +996,11 @@ Title,Publisher,Valuable,Count,IDnum
 "Shadows In Kyoto","Emperors4",false,1,2448
 "Shadows: Amsterdam","Libellud",false,1,2480
 "Shadowscape","Nskn Games",false,1,2478
-"Sheriff Of Nottingham","Arcane Wonders",true,3,3175
-"Sheriff Of Nottingham","Arcane Wonders",true,3,1955
 "Sheriff Of Nottingham","Cmon",true,2,2864
-"Sheriff Of Nottingham","Arcane Wonders",true,2,1618
-"Sherlock Holmes Consulting Detective: Jack The Ripper & West End Adventures","Asmodee",false,1,1753
+"Sheriff Of Nottingham","Arcane Wonders",true,3,3175
+"Sheriff of Nottingham","Arcane Wonders",true,3,1955
+"Sheriff of Nottingham","Arcane Wonders",true,2,1618
+"Sherlock Holmes Consulting Detective: Jack the Ripper & West End Adventures","Asmodee",false,1,1753
 "Shifting Realms","Soaring Rhino",false,1,2528
 "Shipwrights Of The North Sea","Renegade Game Studios",false,1,2117
 "Shogunate","Action Phase Games",false,1,2409
@@ -1038,14 +1038,14 @@ Title,Publisher,Valuable,Count,IDnum
 "Space Park","Keymaster Games",false,1,2889
 "Spanc: Space Pirate Amazon Ninja Catgirls","Steve Jackson Games",false,1,2504
 "Sparkle*Kitty","Breaking Games",false,1,1814
-"Sparkle*Kitty Nights","Breaking Games",false,2,2875
+"Sparkle*kitty Nights","Breaking Games",false,2,2875
 "Speechless","Arcane Wonders",false,2,1665
 "Spinderella","Zoch",false,1,2378
 "Spirit Island","Greater Than Games",false,2,1727
 "Spirits Of The Rice Patty","Advanced Primate Entertainment",false,1,2623
+"Splendor","Asmodee",true,1,1238
 "Splendor","Asmodee",true,1,1972
 "Splendor","Asmodee",true,2,2402
-"Splendor","Asmodee",true,1,1238
 "Spot It Jr.! Animals","Asmodee",false,2,3029
 "Spot It!","Asmodee",false,5,1837
 "Spot It! Basic French","Asmodee",false,1,3030
@@ -1061,16 +1061,16 @@ Title,Publisher,Valuable,Count,IDnum
 "Star Fluxx","Looney Labs",false,1,767
 "Star Munchkin: Guest Artist Edition","Steve Jackson Games",false,1,1734
 "Star Realms: Frontiers","White Wizard Games",false,2,3334
-"Star Trek Chrono-Trek","Gale Force Nine",false,2,3505
-"Star Trek Chrono-Trek","Looney Labs",false,1,3034
+"Star Trek Chrono-trek","Looney Labs",false,1,3034
+"Star Trek Chrono-trek","Gale Force Nine",false,2,3505
 "Star Trek: Ascendancy","Gale Force Nine",false,1,2179
-"Star Trek: Five-Year Mission","Mayfair Games",false,1,3170
+"Star Trek: Five-year Mission","Mayfair Games",false,1,3170
 "Star Wars: Outer Rim","Fantasy Flight Games",false,1,3087
 "Starship Samurai","Plaid Hat Games",false,1,2325
 "Status Report!","Off Cut Games",false,1,2960
 "Steam Park","Iello",true,1,2145
 "Stellar","Renegade Game Studios",false,1,3527
-"Stitches: A Card Game Of Monstrous Proportions","Norwester Games",false,1,1609
+"Stitches: A Card Game of Monstrous Proportions","Norwester Games",false,1,1609
 "Stone Age","Z-Man Games",true,1,780
 "Stone Age","Z-Man Games",true,3,2160
 "Stoneage Anniversary","Z-Man Games",true,1,2848
@@ -1095,15 +1095,15 @@ Title,Publisher,Valuable,Count,IDnum
 "Super Punch Fighter","Plaid Hat Games",false,3,2865
 "Superfight","Skybound Games",false,1,1203
 "Surfer","Hoot Games",false,1,2798
-"Survive: Escape From Atlantis!","Stronghold Games",true,1,1809
+"Survive: Escape from Atlantis!","Stronghold Games",true,1,1809
 "Sushi Go Party!","Gamewright",true,1,1592
 "Sushi Go!","Gamewright",true,6,1135
 "Sushi Roll","Gamewright",true,1,3475
-"Ta-Da!","Cmon",false,1,1688
+"Ta-da!","Cmon",false,1,1688
 "Tag City","Runes Editions",true,2,2643
 "Take 5","Amigo Games",false,1,3052
 "Takenoko","Asmodee",true,1,800
-"Tales & Games: The Hare & The Tortoise","Iello",true,1,1236
+"Tales & Games: The Hare & the Tortoise","Iello",true,1,1236
 "Tales & Games: The Hare & The Tortoise","Whatz Gmaes",false,1,3157
 "Tales Of The Northlands The Sagas Of Noggin Of The Nog","A-Muse-Ment",true,1,2637
 "Tally Ho!","Kosmos",false,1,1474
@@ -1118,13 +1118,13 @@ Title,Publisher,Valuable,Count,IDnum
 "Teotihuacan","Nskn Games",false,1,2697
 "Terra Mystica","Z-Man Games",true,3,1090
 "Terra Nova","Winning Moves Games",false,1,811
-"Terraforming Mars","Stronghold Games",true,3,1704
 "Terraforming Mars","Stronghold Games",true,3,1610
+"Terraforming Mars","Stronghold Games",true,3,1704
 "Terramara","Quined Games",false,3,3423
 "Terror Below","Renegade Game Studios",false,1,2969
 "That's A Question!","Czech Games",false,1,2940
 "Thats Not Lemonade!","Tuesday Knight Games",false,1,3225
-"The Adventurers: The Pyramid Of Horus","Fantasy Flight Games",false,1,21
+"The Adventurers: The Pyramid of Horus","Fantasy Flight Games",false,1,21
 "The Battle Of Red Cliffs","Sunrise Tornado Game Studio",false,1,2207
 "The Big Book Of Madness","Iello",false,1,3401
 "The Blood Of An Englishman","Anomia Press",false,4,3494
@@ -1144,11 +1144,11 @@ Title,Publisher,Valuable,Count,IDnum
 "The Estates","Simply Complex",false,1,2759
 "The Flow Of History","Tasty Minstrel Games",false,1,2238
 "The Fox In The Forest Duet","Renegade Game Studios",false,1,3521
-"The Game Of 49","Breaking Games",false,1,1435
+"The Game of 49","Breaking Games",false,1,1435
 "The Godfather: An Offer You Can't Refuse","Idw Games",false,1,3260
 "The Grizzled","Sweet Games",true,1,1395
 "The Grizzled: Armistice Edition","Cmon",true,1,2390
-"The Incredibles: Save The Day Game","Wonder Forge",false,1,2223
+"The Incredibles: Save the Day Game","Wonder Forge",false,1,2223
 "The Island Of Doctor Lucky","Cheapass Games",false,1,2379
 "The Island Of Misfit Friends","Twilight Creations",false,1,2555
 "The Legend Of The Cherry Tree That Blossoms Every Ten Years","Iello",false,1,2298
@@ -1157,9 +1157,9 @@ Title,Publisher,Valuable,Count,IDnum
 "The Metagame","Local No. 12, Llc.",false,1,1539
 "The Mind","Nsv",true,1,2196
 "The Neverland Rescue","Letiman Games",false,1,3080
-"The Palace Of Mad King Ludwig","Bezier Games",true,1,2033
-"The Princess Bride: A Battle Of Wits","Spark Works",false,1,3570
+"The Palace of Mad King Ludwig","Bezier Games",true,1,2033
 "The Princess Bride: A Battle Of Wits","Game Salute",false,2,3035
+"The Princess Bride: A Battle Of Wits","Spark Works",false,1,3570
 "The Princess Bride: Prepare To Die!","Spark Works",false,1,3569
 "The Princess Bride: Prepare To Die! Again!!","Game Salute",false,1,2767
 "The Prodigals Club","Cge",false,1,2157
@@ -1174,7 +1174,7 @@ Title,Publisher,Valuable,Count,IDnum
 "The Shining","Asmodee",false,3,3538
 "The Stars Align","Breaking Games",false,2,2878
 "The Tea Dragon Society Card Game","Renegade Game Studios",false,1,2234
-"The Thing: Infection At Outpost 31","Usaopoly",false,1,1935
+"The Thing: Infection at Outpost 31","Usaopoly",false,1,1935
 "The Walking Dead: Something To Fear","Skybound Games",false,1,3516
 "The Works","Cheapass Games",false,1,2353
 "This Game Goes To Eleven","Gamewright",false,1,2944
@@ -1182,29 +1182,29 @@ Title,Publisher,Valuable,Count,IDnum
 "Three Cheers For The Master","Atlas Games",false,1,1382
 "Three Kingdoms Redux","Starting Player",true,1,1499
 "Throne Of Allegoria","Spielworxx",true,1,3437
-"Through The Ages: A New Story Of Civilization","Cge",true,3,2156
-"Through The Ages: A New Story Of Civilization","Cge",true,2,848
+"Through the Ages: A New Story of Civilization","Cge",true,3,2156
 "Through The Ages: A New Story Of Civilization","Cge",false,1,2935
-"Through The Desert","Fantasy Flight Games",false,1,849
+"Through the Ages: A New Story of Civilization","Cge",true,2,848
+"Through the Desert","Fantasy Flight Games",false,1,849
 "Thunderstone Quest","Aeg",false,1,2662
 "Ticket To Ride","Days Of Wonder",true,6,2065
 "Ticket To Ride","Days Of Wonder",true,8,2985
-"Ticket To Ride","Days Of Wonder",true,2,1751
+"Ticket to Ride","Days Of Wonder",true,2,1751
 "Ticket To Ride: Europe","Days Of Wonder",true,3,2986
 "Ticket To Ride: Europe","Days Of Wonder",true,12,2064
-"Ticket To Ride: First Journey (U.S.)","Days Of Wonder",true,1,1982
-"Ticket To Ride: Germany","Days Of Wonder",true,1,1797
+"Ticket to Ride: First Journey (U.S.)","Days Of Wonder",true,1,1982
+"Ticket to Ride: Germany","Days Of Wonder",true,1,1797
 "Ticket To Ride: Japan","Days Of Wonder",true,2,3292
 "Ticket To Ride: New York","Days Of Wonder",true,7,2841
 "Ticket To Ride: New York","Days Of Wonder",true,2,2393
-"Ticket To Ride: Nordic Countries","Days Of Wonder",true,1,858
-"Ticket To Ride: Rails & Sails","Days Of Wonder",true,2,1550
+"Ticket to Ride: Nordic Countries","Days Of Wonder",true,1,858
+"Ticket to Ride: Rails & Sails","Days Of Wonder",true,2,1550
 "Tigris & Euphrates","Fantasy Flight Games",true,2,2858
 "Tiki Topple","Gamewright",false,1,863
 "Tile Chess","Steve Jackson Games",false,1,1571
 "Time Chase","Renegade Game Studios",false,1,2950
-"Tiny Epic Defenders","Gamelyn Games",false,2,1241
 "Tiny Epic Defenders","Gamelyn Games",false,1,3213
+"Tiny Epic Defenders","Gamelyn Games",false,2,1241
 "Tiny Epic Defenders The Dark War","Gamelyn Games",false,1,3209
 "Tiny Epic Galaxies","Gamelyn Games",false,1,3211
 "Tiny Epic Galaxies: Beyond The Black","Gamelyn Games",false,1,3214
@@ -1253,18 +1253,18 @@ Title,Publisher,Valuable,Count,IDnum
 "Twin It!","Gamewright",false,1,2772
 "Two Khans","Dorehami Games",false,1,3298
 "Two Rooms And A Boom","Tuesday Knight Games",true,1,3236
-"Tybor Der Baumeister","Mayfair Games",true,1,1779
+"Tybor der Baumeister","Mayfair Games",true,1,1779
 "Tzolk'in: The Mayan Calendar","Cge",true,1,2107
 "Ubongo","Kosmos",false,1,1409
 "Ubongo Extreme","Z-Man Games",false,1,911
 "Ubongo: Duel","Z-Man Games",false,1,910
-"Ubongo: Fun-Size Edition","Kosmos",false,1,2447
+"Ubongo: Fun-size Edition","Kosmos",false,1,2447
 "Ukubuwa","Nibcard",false,1,2633
-"Underwater Cities","Rio Grande Games",true,1,3289
 "Underwater Cities","Delicious Games",true,1,2690
+"Underwater Cities","Rio Grande Games",true,1,3289
 "Unexploded Cow","Cheapass Games",false,1,914
-"Unicorn Glitterluck","Haba",true,1,3243
 "Unicorn Glitterluck","Haba ",true,1,1680
+"Unicorn Glitterluck","Haba",true,1,3243
 "Unmatched: Battle Of Legends Vol. 1","Restoration Games",true,1,3473
 "Uno","Mattel",false,1,2058
 "Unstable Unicorns","Breaking Games",false,1,2202
@@ -1276,16 +1276,16 @@ Title,Publisher,Valuable,Count,IDnum
 "Vast: The Crystal Caverns","Leder Games",false,1,1574
 "Vegas Wits And Wagers","North Star Games",true,1,3203
 "Velociraptor! Cannibalism!","Game Salute",false,1,1083
-"Venture Party","Golden Bell Games",false,1,2171
 "Venture Party","Golden Bell Games",false,1,2094
+"Venture Party","Golden Bell Games",false,1,2171
 "Villainous","Usaopoly",true,1,2213
 "Visitor In Blackwood Grove","Resonym",false,2,2142
 "Volcanic Isle","Arcane Wonders",false,1,3155
 "Wakening Lair","Rather Dashing",false,1,2560
 "Walk The Plank: Deluxe Edition","Mayday Games",false,1,3185
 "Walking In Burama","Emperors4",false,1,2626
-"Walls Of York","Cmon",false,1,3084
 "Walls Of York","Cranio Creations",false,1,3081
+"Walls Of York","Cmon",false,1,3084
 "War Chest","Aeg",true,1,2607
 "War Of Indines","Level 99 Games",false,1,2931
 "Warsaw: City Of Ruins","North Star Games",true,1,2658
@@ -1312,9 +1312,9 @@ Title,Publisher,Valuable,Count,IDnum
 "World Championship Russian Roulette","Tuesday Knight Games",false,2,1780
 "World Shapers","Board & Dice",false,2,3057
 "Ya Blew It!","Wonder Forge",false,1,2228
-"Yeahnope","Forrest Pruzan",false,1,2229
+"YeahNOPE","Forrest Pruzan",false,1,2229
 "Yogi","Gigamic",false,1,1893
-"You Are The Maniac!","Counter Culture Cards",false,1,2168
+"YOU are the Maniac!","Counter Culture Cards",false,1,2168
 "Yukon Airways","Ludonova",true,3,3433
 "Yummy Yummy Pancakes","Mayday Games",false,1,3238
 "Zendo","Looney Labs",false,1,2313
