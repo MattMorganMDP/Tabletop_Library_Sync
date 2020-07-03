@@ -21,11 +21,11 @@ def BGGextract(filename, first_item, last_item):
     # Configure directory and file in which to save info
     ####################################################
 
-    #Set working directory by checking for BGGexports folder and creating it if does not exist
-    BGGpath = Path.home() / 'Documents' / 'BGGexports'
-    if BGGpath.exists() == False:
-        os.makedirs(BGGpath)
-    os.chdir(BGGpath)
+    #DEPRECATED - Set working directory by checking for BGGexports folder and creating it if does not exist
+    # BGGpath = Path.home() / 'Documents' / 'BGGexports'
+    # if BGGpath.exists() == False:
+    #    os.makedirs(BGGpath)
+    # os.chdir(BGGpath)
     
     #Check if file exists, then either open it or create a new blank workbook, and set active sheet. If created new wb, configure sheet name and headers
     if Path(filename).is_file():
@@ -132,11 +132,13 @@ if __name__ == "__main__":
     
     #Determine range of BGG ID #s to extract. If integers are not provided for inputs, set range from 1 to highest number available on BGG website
     
-    #Set lower bound of ID# range
-    #try:
-    #    first_item = int(input('Enter lowest BGG ID value to capture. Blank input will set script to start at ID #1: '))
-    #except:
-    #    first_item = 1
+    #Set filename, and if necessary, set first item as 1
+    filename = input("Enter the filename of past BGG titles export, or leave blank to create new. Please use / as backslash if typing in directory path: ")
+    if filename == '':
+        filename = 'BGG_ID_spreadsheet.xlsx'
+        first_item = 1
+    else:
+        first_item = 'max_row'
 
     #Set upper bound of ID# range
     try:
@@ -144,13 +146,6 @@ if __name__ == "__main__":
     except:
         last_item = BGGmaxitem() #call function to extract highest possible ID# from GeekFeed's RSS
 
-    #Set filename.
-    filename = input("Enter the filename of past BGG titles export, or leave blank to create new. Please use / as backslash if typing in directory path: ")
-    if filename == '':
-        filename = 'BGG_ID_spreadsheet.xlsx'
-        first_item = 1
-    else:
-        first_item = 'max_row'
      
     #Call the main function for extracting data from BGG, passing all of the above variables
     BGGextract(filename, first_item, last_item)
