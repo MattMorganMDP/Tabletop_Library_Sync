@@ -1,6 +1,8 @@
 import csv
 import openpyxl
 from difflib import get_close_matches
+import sys 
+from time import sleep 
 
 def main():
     ########################################################################
@@ -8,13 +10,6 @@ def main():
     ########################################################################
 
     def TitleWriting(game, newname = '.', status = 'pass'):
-
-        #Load global variables
-        #global PAXnames
-        #global PAXvaluable
-        #global PAXcount
-        #global PAXids
-        #global BGGnames
         
         # Test for correction conditions . 
         # 1) Newname == . means no value was passed, so write row as-is and add the BGG ID#
@@ -88,7 +83,12 @@ def main():
 
     ###### LOAD BGG NAMES ######
     # Open BGG workbook, set active sheet. Initialize a dictionary of BGG names, then iterate reading game name as key and ID# as value
-    wb = openpyxl.load_workbook('BGG_ID_spreadsheet_complete.xlsx')
+    
+    try:
+        wb = openpyxl.load_workbook('BGG_ID_spreadsheet_complete.xlsx')
+    except: 
+        print('Error: Could not locate index of BGG names/IDs. Please load BGG_ID_spreadsheet_complete.xlsx into current working directory and restart script')
+        sys.exit()
     sheet = wb.active
     BGGnames = {}
     for x in range(1,sheet.max_row + 1):
@@ -97,13 +97,37 @@ def main():
 
     ###### LOAD PAX TITLES ######
     # Read in elements of .csv to different lists, iterating over every row in the PAX Titles csv
-    PAX_Titles_path = input("Enter the filename of PAX Titles report - please use / as backslash if typing in directory path: ")
-    if PAX_Titles_path == '':
-        #PAXgames = open('PAXcorrections - June27.csv', 'r', newline='', encoding='utf-16')
-        PAXgames = open('TTLibrary_Titles-testshort.csv', mode='r', newline='')
-    else:
+    print('\n') 
+    print (30 * '-')
+    print ("   D A T A - I N P U T")
+    print (30 * '-')
+    print ("1. Tabletop Library's Titles Report")
+    print ("2. Prior Export From Corrections Script")
+    print ("3. Enter Own Filename")
+    print (30 * '-')
+    
+    choice = int(input('Please enter your choice [1-3]: '))
+
+    if choice == 1:
+        try:
+            PAXgames = open('TTLibrary_Titles.csv', mode='r', newline='')
+        except:
+            print('Error: Could not locate Titles report. Please load TTLibrary_Titles.csv into current working directory and restart script')
+            sleep(3)
+            sys.exit()
+    elif choice == 2:
+        try:
+            PAXgames = open('PAXcorrections.csv', 'r', newline='', encoding='utf-16')
+        except:
+            print('Error: Could not locate past script output. Please load PAXcorrections.csv into current working directory and restart script')
+            sleep(3)
+            sys.exit()
+    elif choice == 3:
+        PAX_Titles_path = input("Enter the filename of input .csv file: ")
         PAXgames = open(PAX_Titles_path, 'r', newline='')
+  
     reader = csv.reader(PAXgames)
+
 
     #Initialize lists
     PAXnames = []
