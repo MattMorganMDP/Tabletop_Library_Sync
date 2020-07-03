@@ -9,6 +9,7 @@ import openpyxl
 from difflib import get_close_matches
 
 def print_menu():
+    print('\n') 
     print (30 * '-')
     print ("   M A I N - M E N U")
     print (30 * '-')
@@ -31,12 +32,12 @@ while loop:  ## Continues executing until loop is false
             #Determine range of BGG ID #s to extract. If integers are not provided for inputs, set range from 1 to highest number available on BGG website
     
             #Set filename, and if necessary, set first item as 1
-            filename = input("Enter the filename of past BGG titles export, or leave blank to create new. Please use / as backslash if typing in directory path: ")
+            #TO DO - Check if complete spreadsheet exists. If so, ask user if they would like to continue or start a new one
+            filename = input("Enter the filename of past BGG titles export, typically BGG_ID_spreadsheet_complete.xlsx, or leave blank to create new: ")
             if filename == '':
-                filename = 'BGG_ID_spreadsheet.xlsx'
+                filename = 'BGG_ID_spreadsheet_complete.xlsx'
                 first_item = 1
             else:
-                #TO DO - Check to ensure that file exists
                 first_item = 'max_row'
 
             #Set upper bound of ID# range
@@ -60,6 +61,7 @@ while loop:  ## Continues executing until loop is false
 
 
     elif choice == 4: 
+            print('\n') 
             print('Current working directory is: ' + str(Path.cwd()))
 
 
