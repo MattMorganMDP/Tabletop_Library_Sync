@@ -4,6 +4,9 @@ from bs4 import BeautifulSoup  #function for reading the page's XML returned by 
 from time import sleep  #sleep function allows pausing of script, to avoid getting rate-limited by BGG
 from random import randint  #generate random integers, used in randomizing wait time
 import itertools #uses zip function to iterate over two lists concurrently
+from pathlib import Path #used in handling Path objects
+import os #used in reading and creating directory for output
+import sys #used to quit script
 
 if __name__ == "__main__":
     data_collect()
@@ -11,15 +14,16 @@ if __name__ == "__main__":
 def data_collect():
     ###### LOAD PAX TITLES ######
     # Read in elements of .csv to different lists, iterating over every row in the PAX Titles csv
-    PAX_Titles_path = input('Enter the filename of PAX Titles report. Leave blank for default Game Title Matching output file: ')
-    if PAX_Titles_path == '':
-        PAXgames = open('PAXcorrections.csv', 'r', newline='', encoding='utf-16')
-        #PAXgames = open('PAXcorrections - June27.csv', 'r', newline='', encoding='utf-16')
-        #PAXgames = open('TTLibrary_Titles-testshort.csv', mode='r', newline='')
-        #PAXgames = open('TTLibrary_Titles_withID.csv', mode='r', newline='')
-        #PAXgames = open('PAXcorrections_Excel.csv', mode='r', newline='')
+    PAX_Titles_path = 'PAXcorrections.csv'
+    if Path(PAX_Titles_path).is_file():
+        print('Loading PAXcorrections.csv...')
+        try:
+            PAXgames = open(PAX_Titles_path, 'r', newline='', encoding='utf-16')
+        except:
+            print('Error: File not found. Please load into current working directory and re-run script')
     else:
-        PAXgames = open(PAX_Titles_path, 'r', newline='')
+        PAX_Titles_path = input('No Game Title Correction export (PAXcorrections.csv) found. Please manually input filename: ')
+        
     reader = csv.reader(PAXgames)
 
     #Initialize lists
@@ -55,8 +59,7 @@ def data_collect():
         if (count+1)%100 == 0:
             URL_args = ','.join(list(map(str,ID_range))) 
             url = base_url + URL_args  + '&stats=1'
-            print(url)
-            
+                        
             #Use requests and BeautifulSoup to extract and read XML. Separaetly pull XML tags: (1) of <name> with type "primary", (2) of <item>
             response = requests.get(url)
             soup = BeautifulSoup(response.text, 'lxml')
@@ -83,6 +86,7 @@ def data_collect():
                     DataWriter.writerow([PAXnames[BGGids.index(BGG_id)], PAXids[BGGids.index(BGG_id)], BGG_id, game_min_player, game_max_player, year_published, play_time, min_age, avg_rating, avg_weight])
                     print(PAXnames[BGGids.index(BGG_id)])
 
+            print('\n' + 'Attempting to load next batch of BGG IDs. Will take 15-30 seconds...' '\n')   
             sleep(randint(15,30))  #sleep to prevent rate-limit
 
             # Clear out ID_range to accept a fresh set of 100 IDs on next loop iteration
