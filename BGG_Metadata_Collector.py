@@ -45,7 +45,7 @@ DataWriter.writerow(header)
 
 base_url = 'https://www.boardgamegeek.com/xmlapi2/thing?id='
 
-#Set ID_range to be 100-item lists of IDs
+#Set ID_range to be 100-item chunks from master set of BGG ID#s
 for count, IDs in enumerate(BGGids):
     ID_range.append(IDs)
     if (count+1)%100 == 0:
@@ -63,8 +63,7 @@ for count, IDs in enumerate(BGGids):
         soup_age = soup.find_all('minage')
         soup_rating = soup.find_all('average')
         soup_weight = soup.find_all('averageweight')
-        #TO DO - Continue adding soup objects for desired metadata fiels
-
+       
         #Regex processing of soup objects. Include BGG_id sequence from ID_range to use as index value of PAXnames/PAXids when writing csv
         for min_player, max_player, year, time, age, rating, weight, BGG_id in zip(soup_min, soup_max, soup_year, soup_time, soup_age, soup_rating, soup_weight, ID_range):
             game_min_player = min_player.attrs['value']
@@ -75,15 +74,14 @@ for count, IDs in enumerate(BGGids):
             avg_rating = rating.attrs['value']
             avg_weight = weight.attrs['value']
 
-            #Write row to CSV only if game has a BGG ID#
+            #Write row to CSV only if game has a BGG ID#. Behavior dependent on PAX_Title_Corrector.py behavior that writes zeros to blank BGG ID# fields
             if BGG_id != 0:
-                DataWriter.writerow([PAXnames[BGGids.index(BGG_id)], PAXids[BGGids.index(BGG_id)], BGG_id, game_min_player, game_max_player, year_published, play_time, min_age, avg_rating, avg_weight ])
-                #print(min_player, max_player, BGG_id)
+                DataWriter.writerow([PAXnames[BGGids.index(BGG_id)], PAXids[BGGids.index(BGG_id)], BGG_id, game_min_player, game_max_player, year_published, play_time, min_age, avg_rating, avg_weight])
                 print(PAXnames[BGGids.index(BGG_id)])
 
-        sleep(randint(15,30))  #sleep to prevent rate-limit or DOS
+        sleep(randint(15,30))  #sleep to prevent rate-limit
 
-        # Clear out ID_range to accept a fresh set of 100 IDs
+        # Clear out ID_range to accept a fresh set of 100 IDs on next loop iteration
         ID_range = []
 
 BGGmetadata.close()
