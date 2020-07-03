@@ -7,6 +7,7 @@ import sys #used to quit script
 import csv
 import openpyxl
 from difflib import get_close_matches
+from time import sleep
 
 def print_menu():
     print('\n') 
@@ -14,7 +15,7 @@ def print_menu():
     print ("   M A I N - M E N U")
     print (30 * '-')
     print ("1. BGG ID# Index Update")
-    print ("2. Game Title Matching")
+    print ("2. Game Title Correction & BGG ID# Association")
     print ("3. Game Metadata Collection")
     print ("4. Print current working directory")
     print ("5. Exit")
@@ -28,48 +29,26 @@ while loop:  ## Continues executing until loop is false
 
     ### Take actions as per selected menu-option ###
     if choice == 1:
-            print ("Starting BGG ID# collection...")
-            #Determine range of BGG ID #s to extract. If integers are not provided for inputs, set range from 1 to highest number available on BGG website
-    
-            #Set filename, and if necessary, set first item as 1
-            #TO DO - Check if complete spreadsheet exists. If so, ask user if they would like to continue or start a new one
-            filename = input("Enter the filename of past BGG titles export, typically BGG_ID_spreadsheet_complete.xlsx, or leave blank to create new: ")
-            if filename == '':
-                filename = 'BGG_ID_spreadsheet_complete.xlsx'
-                first_item = 1
-            else:
-                first_item = 'max_row'
-
-            #Set upper bound of ID# range
-            try:
-                last_item = int(input('Enter highest BGG ID value to capture. Blank input will set script to max ID # available: ')) 
-            except:
-                last_item = BGG_GameID_Collector.BGGmaxitem() #call function to extract highest possible ID# from GeekFeed's RSS
-
-            
-            #Call the main function for extracting data from BGG, passing all of the above variables
-            BGG_GameID_Collector.BGGextract(filename, first_item, last_item)
-
+        print ('\n' + 'Attempting to locate existing BGG ID# index...')
+        BGG_GameID_Collector.BGGextract()
 
     elif choice == 2:
-            print ("Starting matching of game titles. Initialization will take some time...")
-            PAX_Title_Corrector.main()
+        print ('\n' + 'Starting game title correction... [this may take some time, ~20 seconds]')
+        PAX_Title_Corrector.main()
 
     elif choice == 3:
-            print ("Starting collection of metadata...")
-            BGG_Metadata_Collector.data_collect()
-
+        print('\n' + 'Starting collection of metadata...')
+        BGG_Metadata_Collector.data_collect()
 
     elif choice == 4: 
-            print('\n') 
-            print('Current working directory is: ' + str(Path.cwd()))
-
+        print('\n' + 'Current working directory is: ' + str(Path.cwd()))
+        sleep(1)
 
     elif choice == 5:
-            print ("Exiting scipt. Have a nice day!")
-            sys.exit()
+        print ('\n' + 'Exiting scipt. Have a nice day!')
+        sleep(1)
+        sys.exit()
 
-
-    else:    ## default ##
-            print ("Invalid number. Please try again.")
+    else:    
+        print ("Invalid number. Please try again.")
 
