@@ -129,7 +129,6 @@ def main():
                 PAXnames.append(rows[0])
                 PAXids.append(rows[4])
             header = next(reader)
-            header.append('BGG ID')
         except:
             print('Error: Could not locate Titles report. Please load TTLibrary_Titles.csv into current working directory and restart script')
             sleep(3)
@@ -155,7 +154,7 @@ def main():
             PAXids.append(rows[1])
             header = next(reader)
  
-
+    header = ['Title', 'PAX ID', 'BGG ID']
 
     ###### OPEN FILES FOR WRITING ######
     #Open output csv for writing corrected titles, set the writer object, and write the header
