@@ -20,15 +20,15 @@ def main():
         # 3) Status flag set to fail means game was manual renamed. Need to write newname, but not attempt to find BGG ID#. Log error. 
         # 4) If not blank or ., and status flag not changed, write the newname variable as game title and look up its BGG ID#
         if newname == '.':
-            TitleWriter.writerow([game, PAXpublisher[PAXnames.index(game)], bool(PAXvaluable[PAXnames.index(game)]), int(PAXcount[PAXnames.index(game)]), int(PAXids[PAXnames.index(game)]), BGGnames[game]])
+            TitleWriter.writerow([game, int(PAXids[PAXnames.index(game)]), BGGnames[game]])
         elif newname == '':
-            TitleWriter.writerow([game, PAXpublisher[PAXnames.index(game)], bool(PAXvaluable[PAXnames.index(game)]), int(PAXcount[PAXnames.index(game)]), int(PAXids[PAXnames.index(game)]), 0])
+            TitleWriter.writerow([game, int(PAXids[PAXnames.index(game)]), 0])
             ErrorWriter.write(game + '\n')
         elif status == 'fail':
-            TitleWriter.writerow([newname, PAXpublisher[PAXnames.index(game)], bool(PAXvaluable[PAXnames.index(game)]), int(PAXcount[PAXnames.index(game)]), int(PAXids[PAXnames.index(game)]), 0])
+            TitleWriter.writerow([newname, int(PAXids[PAXnames.index(game)]), 0])
             ErrorWriter.write(newname + '\n')
         else:
-            TitleWriter.writerow([newname, PAXpublisher[PAXnames.index(game)], bool(PAXvaluable[PAXnames.index(game)]), int(PAXcount[PAXnames.index(game)]), int(PAXids[PAXnames.index(game)]), BGGnames[newname]])
+            TitleWriter.writerow([newname, int(PAXids[PAXnames.index(game)]), BGGnames[newname]])
         return()
 
     ########################################################################
@@ -104,15 +104,19 @@ def main():
 
 
     ###### LOAD INPUT FILE TO COMPARE (Titles Report) ######
-    # Present user with menu selection of frequently-used .csv files, or allow to input own filename
 
+    # Initialize lists
+    PAXnames = []
+    PAXids = []
+
+    # Present user with menu selection of frequently-used .csv files, or allow to input own filename
     print('\n') 
     print (30 * '-')
     print ("   D A T A - I N P U T")
     print (30 * '-')
-    print ("1. Tabletop Library's Titles Report")
-    print ("2. Prior Export From Corrections Script")
-    print ("3. Enter Own Filename")
+    print ("1. Tabletop Library's Titles Report (TTLibrary_Titles.csv)")
+    print ("2. Prior Export From Corrections Script (PAXcorrections.csv)")
+    print ("3. Prior Export (Manual Filename Entry)")
     print (30 * '-')
     
     choice = int(input('Please enter your choice [1-3]: '))
@@ -120,6 +124,12 @@ def main():
     if choice == 1:
         try:
             PAXgames = open('TTLibrary_Titles.csv', mode='r', newline='')
+            reader = csv.reader(PAXgames) # Read .csv into a variable
+            for rows in reader:  # Iterate through input csv and append different elements of each row to the appropriate list
+                PAXnames.append(rows[0])
+                PAXids.append(rows[4])
+            header = next(reader)
+            header.append('BGG ID')
         except:
             print('Error: Could not locate Titles report. Please load TTLibrary_Titles.csv into current working directory and restart script')
             sleep(3)
@@ -127,34 +137,24 @@ def main():
     elif choice == 2:
         try:
             PAXgames = open('PAXcorrections.csv', 'r', newline='', encoding='utf-16')
+            reader = csv.reader(PAXgames) # Read .csv into a variable
+            for rows in reader:  # Iterate through input csv and append different elements of each row to the appropriate list
+                PAXnames.append(rows[0])
+                PAXids.append(rows[1])
+            header = next(reader)
         except:
             print('Error: Could not locate past script output. Please load PAXcorrections.csv into current working directory and restart script')
             sleep(3)
             sys.exit()
     elif choice == 3:
-        PAX_Titles_path = input("Enter the filename of input .csv file: ")
+        PAX_Titles_path = input("Enter the name of past script output .csv file: ")
         PAXgames = open(PAX_Titles_path, 'r', newline='')
-  
-    # Read .csv into a variable
-    reader = csv.reader(PAXgames)
-
-    # Initialize lists
-    PAXnames = []
-    PAXpublisher = []
-    PAXvaluable = []
-    PAXcount = []
-    PAXids = []
-
-    # Iterate through input csv and append different elements of each row to the appropriate list
-    header = next(reader)
-    if len(header) == 5:  #only append the extra column title if the input .csv is lacking a 6th column
-        header.append('BGG ID')
-    for rows in reader:
-        PAXnames.append(rows[0])
-        PAXpublisher.append(rows[1])
-        PAXvaluable.append(rows[2])
-        PAXcount.append(rows[3])
-        PAXids.append(rows[4])
+        reader = csv.reader(PAXgames) # Read .csv into a variable
+        for rows in reader:  # Iterate through input csv and append different elements of each row to the appropriate list
+            PAXnames.append(rows[0])
+            PAXids.append(rows[1])
+            header = next(reader)
+ 
 
 
     ###### OPEN FILES FOR WRITING ######
