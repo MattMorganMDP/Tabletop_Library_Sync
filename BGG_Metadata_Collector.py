@@ -20,9 +20,10 @@ def data_collect():
         try:
             PAXgames = open(PAX_Titles_path, 'r', newline='', encoding='utf-16')
         except:
-            print('Error: File not found. Please load into current working directory and re-run script')
+            print('Error loading file. Please load into current working directory and re-run script. Potential .csv type error - ensure UTF-16 encoding')
     else:
         PAX_Titles_path = input('No Game Title Correction export (PAXcorrections.csv) found. Please manually input filename: ')
+        PAXgames = open(PAX_Titles_path, 'r', newline='', encoding='utf-16')
         
     reader = csv.reader(PAXgames)
 
@@ -38,8 +39,8 @@ def data_collect():
     print(header)
     for rows in reader:
         PAXnames.append(rows[0])
-        PAXids.append(rows[4])
-        BGGids.append(rows[5])
+        PAXids.append(rows[1])
+        BGGids.append(rows[2])
 
 
     ###### OPEN NEW CSV FOR WRITING ######
