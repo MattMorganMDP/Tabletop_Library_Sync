@@ -3,6 +3,9 @@ import openpyxl
 from difflib import get_close_matches
 import sys 
 from time import sleep 
+from datetime import datetime
+
+#All code contained within main() function as to prevent automatic execution when this file is imported into main menu script
 
 def main():
     ########################################################################
@@ -13,15 +16,17 @@ def main():
         
         # Test for correction conditions . 
         # 1) Newname == . means no value was passed, so write row as-is and add the BGG ID#
-        # 2) A blank newname means correction was attempted but failed, so write row with a 0 in BGG ID# field
-        # 3) Status flag set to fail means game was manual renamed. Need to write newname, but not attempt to find BGG ID#
-        # 3) If not blank or ., and status flag not changed, write the newname variable as game title and look up its BGG ID#
+        # 2) A blank newname means correction was attempted but failed, so write row with a 0 in BGG ID# field. Log error.
+        # 3) Status flag set to fail means game was manual renamed. Need to write newname, but not attempt to find BGG ID#. Log error. 
+        # 4) If not blank or ., and status flag not changed, write the newname variable as game title and look up its BGG ID#
         if newname == '.':
             TitleWriter.writerow([game, PAXpublisher[PAXnames.index(game)], bool(PAXvaluable[PAXnames.index(game)]), int(PAXcount[PAXnames.index(game)]), int(PAXids[PAXnames.index(game)]), BGGnames[game]])
         elif newname == '':
             TitleWriter.writerow([game, PAXpublisher[PAXnames.index(game)], bool(PAXvaluable[PAXnames.index(game)]), int(PAXcount[PAXnames.index(game)]), int(PAXids[PAXnames.index(game)]), 0])
+            ErrorWriter.write(game + '\n')
         elif status == 'fail':
             TitleWriter.writerow([newname, PAXpublisher[PAXnames.index(game)], bool(PAXvaluable[PAXnames.index(game)]), int(PAXcount[PAXnames.index(game)]), int(PAXids[PAXnames.index(game)]), 0])
+            ErrorWriter.write(newname + '\n')
         else:
             TitleWriter.writerow([newname, PAXpublisher[PAXnames.index(game)], bool(PAXvaluable[PAXnames.index(game)]), int(PAXcount[PAXnames.index(game)]), int(PAXids[PAXnames.index(game)]), BGGnames[newname]])
         return()
@@ -80,6 +85,9 @@ def main():
         else:
             return 'fail' #no matches found
 
+    ########################################################################
+    # Prepare file I/O
+    ########################################################################
 
     ###### LOAD BGG NAMES ######
     # Open BGG workbook, set active sheet. Initialize a dictionary of BGG names, then iterate reading game name as key and ID# as value
@@ -95,8 +103,9 @@ def main():
         BGGnames[str(sheet.cell(x,2).value)] = sheet.cell(x,1).value
 
 
-    ###### LOAD PAX TITLES ######
-    # Read in elements of .csv to different lists, iterating over every row in the PAX Titles csv
+    ###### LOAD INPUT FILE TO COMPARE (Titles Report) ######
+    # Present user with menu selection of frequently-used .csv files, or allow to input own filename
+
     print('\n') 
     print (30 * '-')
     print ("   D A T A - I N P U T")
@@ -126,19 +135,20 @@ def main():
         PAX_Titles_path = input("Enter the filename of input .csv file: ")
         PAXgames = open(PAX_Titles_path, 'r', newline='')
   
+    # Read .csv into a variable
     reader = csv.reader(PAXgames)
 
-
-    #Initialize lists
+    # Initialize lists
     PAXnames = []
     PAXpublisher = []
     PAXvaluable = []
     PAXcount = []
     PAXids = []
 
-    #Iterate through PAX Titles csv and append different elements of each row to the appropriate list
+    # Iterate through input csv and append different elements of each row to the appropriate list
     header = next(reader)
-    header.append('BGG ID')
+    if len(header) == 5:  #only append the extra column title if the input .csv is lacking a 6th column
+        header.append('BGG ID')
     for rows in reader:
         PAXnames.append(rows[0])
         PAXpublisher.append(rows[1])
@@ -147,12 +157,15 @@ def main():
         PAXids.append(rows[4])
 
 
-    ###### OPEN NEW CSV FOR WRITING ######
-    #Open file for writing, set the writer object, and write the header
+    ###### OPEN FILES FOR WRITING ######
+    #Open output csv for writing corrected titles, set the writer object, and write the header
     PAXcorrections = open('PAXcorrections.csv', 'w', newline='', encoding='utf-16')
     TitleWriter = csv.writer(PAXcorrections, delimiter=',', escapechar='\\', quotechar='"', quoting=csv.QUOTE_NONNUMERIC)
     TitleWriter.writerow(header)
 
+    #Open a text file for mismatch error logging. Write header message with timestamp.
+    ErrorWriter = open('Title_Mismatch_Log.txt', 'a+') #append mode used to continue growing log
+    ErrorWriter.write('\n \nTitle Corrector was run on ' + str(datetime.now()) + '\nThe following games could not be linked to BGG ID#s: \n')
 
     ###### COMPARE NAMES & WRITE ROWS ######
     for game in PAXnames:
@@ -184,6 +197,7 @@ def main():
         print('\n') 
 
     PAXcorrections.close()
+    ErrorWriter.close()
 
 if __name__ == "__main__":
     main()
