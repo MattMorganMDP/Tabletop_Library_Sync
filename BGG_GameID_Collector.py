@@ -79,37 +79,44 @@ def BGGextract():
         #configure URL by turning (x,x+100), a list of 100 values, into a sequence of strings, joined by commas. Then, append that to base_url
         URL_args = ','.join(list(map(str,ID_range))) 
         url = base_url + URL_args  
-        
+
         #Use requests and BeautifulSoup to extract and read XML. Separaetly pull XML tags: (1) of <name> with type "primary", (2) of <item>
         response = requests.get(url)
         soup = BeautifulSoup(response.text, 'lxml')
         soup_names = soup.find_all('name', type = 'primary') 
         soup_items = soup.find_all('item')
-        soup_year = soup.find_all('yearpublished')
+        #soup_year = soup.find_all('yearpublished')
 
-        #iterate through the game name and ID# pairs, using regex to extract game name and .attrs to extract ID#
-        for (game, game_id, game_year) in zip(soup_names, soup_items, soup_year):
-            game_name_regex = re.compile(r'(?<=value=").*(?=")')  #define regex that strips out all but the BGG name string
-            game_name = game_name_regex.search(str(game))   #apply the regex
+        #iterate through the game name and ID# pairs, using attributes to extract game names and ID#
+        for (game, game_id) in zip(soup_names, soup_items):
+            game_name = game.attrs['value']
             game_id_num = game_id.attrs['id']  #extracts the id='string' from any <item> tags
-            year_published = game_year.attrs['value']
-                           
+
+            # Not all 'item' tags in BGG have a yearpublished value, so assign 0 where it is missing
+            soup_year = game_id.find('yearpublished')
+            if soup_year is not None:
+                year_published = soup_year.attrs['value']
+            else:
+                year_published = 0
+            
+            # Text formatting for game name
+            title = game_name.replace('&amp;', '&') # find and replace to correct HTML ampersand escaping
+            title = title.strip('"') # stripping of leading and trailing double quotes, which appear inconsistently in BGG entries (no explanation)
+
+            print(game_id_num + ' ' + title + ' [' + str(year_published) + ']') #output to terminal to monitor proress
+
             rowNum = soup_names.index(game) #determines the relative position in sequence of up to 100 rows to be written
 
-            #clean up game name formatting, and write both game name and ID# to row in workbook
-            if game_name is not None:
-                title = str(game_name.group()) #load in current key's first (and only) value as a string for post-processing
-                title = title.replace('&amp;', '&') # find and replace to correct HTML ampersand escaping
-                title = title.strip('"') # stripping of leading and trailing double quotes, which appear inconsistently in BGG entries (no explanation)
-                print(game_id_num + ' ' + title + ' [' + year_published + ']') #output to terminal to monitor proress
-                sheet.cell(row = rowNum + row_counter, column = 1).value = int(game_id_num)
-                sheet.cell(row = rowNum + row_counter, column = 2).value = title
-                sheet.cell(row = rowNum + row_counter, column = 3).value = year_published
+            sheet.cell(row = rowNum + row_counter, column = 1).value = int(game_id_num)
+            sheet.cell(row = rowNum + row_counter, column = 2).value = str(title)
+            sheet.cell(row = rowNum + row_counter, column = 3).value = int(year_published)
+
         row_counter = row_counter + (len(soup_names)) #record # of rows written in this batch, incrementing the global row count variable
         
         print('\n' + 'Attempting to load next batch of BGG IDs. Will take 10-15 seconds...' '\n')        
-        sleep(randint(10,15))  #sleep to prevent rate-limit or DOS
         wb.save(str(filename))   #saves the file
+        sleep(randint(10,15))  #sleep to prevent rate-limit or DOS
+
 
     print('BGG Extract has completed, and file has been saved')
     
