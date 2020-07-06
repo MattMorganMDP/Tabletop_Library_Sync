@@ -25,7 +25,7 @@ def BGGextract():
     # if BGGpath.exists() == False:
     #    os.makedirs(BGGpath)
     # os.chdir(BGGpath)
-    filename = 'BGG_ID_spreadsheet_complete_with_years.xlsx'
+    filename = 'BGG_IDs.xlsx'
 
     #Check if file exists, then either open it or create a new blank workbook, and set active sheet. If created new wb, configure sheet name and headers
     if Path(filename).is_file():
