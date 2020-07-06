@@ -5,11 +5,6 @@ from time import sleep  #sleep function allows pausing of script, to avoid getti
 from random import randint  #generate random integers, used in randomizing wait time
 import itertools #uses zip function to iterate over two lists concurrently
 from pathlib import Path #used in handling Path objects
-import os #used in reading and creating directory for output
-import sys #used to quit script
-
-if __name__ == "__main__":
-    data_collect()
 
 def data_collect():
     ###### LOAD PAX TITLES ######
@@ -23,7 +18,12 @@ def data_collect():
             print('Error loading file. Please load into current working directory and re-run script. Potential .csv type error - ensure UTF-16 encoding')
     else:
         PAX_Titles_path = input('No Game Title Correction export (PAXcorrections.csv) found. Please manually input filename: ')
-        PAXgames = open(PAX_Titles_path, 'r', newline='', encoding='utf-16')
+        if Path(PAX_Titles_path).is_file():
+            PAXgames = open(PAX_Titles_path, 'r', newline='', encoding='utf-16')
+        else:
+            print('No such filename found. Exiting to main menu...')
+            sleep(2)
+            return
         
     reader = csv.reader(PAXgames)
 
@@ -36,7 +36,7 @@ def data_collect():
     #use next() function to clear the first row in CSV reader, but replace header value with new list of column names for export
     header = next(reader)
     header = ['Title', 'PAX ID', 'BGG ID', 'Min Player', 'Max Player', 'Year Published', 'Playtime', 'Minimum Age', 'Avg Rating', 'Weight']
-    print(header)
+
     for rows in reader:
         PAXnames.append(rows[0])
         PAXids.append(rows[1])
@@ -54,13 +54,13 @@ def data_collect():
 
     base_url = 'https://www.boardgamegeek.com/xmlapi2/thing?id='
 
-    #Set ID_range to be 100-item chunks from master set of BGG ID#s
+    #Collect metadata in 100-game chunks. Executes when number of ID#s appended to BGG API's URL is divible by 100, or if the last ID appended matches last ID in the list
     for count, IDs in enumerate(BGGids):
         ID_range.append(IDs)
-        if (count+1)%100 == 0:
+        if ((count+1)%100 == 0) or (IDs == BGGids[-1]):   
             URL_args = ','.join(list(map(str,ID_range))) 
             url = base_url + URL_args  + '&stats=1'
-                        
+                                   
             #Use requests and BeautifulSoup to extract and read XML. Separaetly pull XML tags: (1) of <name> with type "primary", (2) of <item>
             response = requests.get(url)
             soup = BeautifulSoup(response.text, 'lxml')
@@ -87,10 +87,14 @@ def data_collect():
                     DataWriter.writerow([PAXnames[BGGids.index(BGG_id)], PAXids[BGGids.index(BGG_id)], BGG_id, game_min_player, game_max_player, year_published, play_time, min_age, avg_rating, avg_weight])
                     print(PAXnames[BGGids.index(BGG_id)])
 
-            print('\n' + 'Attempting to load next batch of BGG IDs. Will take 15-30 seconds...' '\n')   
-            sleep(randint(15,30))  #sleep to prevent rate-limit
+            print('\n' + 'Attempting to load next batch of BGG IDs. Will take 10-15 seconds...' '\n')   
+            sleep(randint(10,15))  #sleep to prevent rate-limit
 
             # Clear out ID_range to accept a fresh set of 100 IDs on next loop iteration
             ID_range = []
 
     BGGmetadata.close()
+    return
+
+if __name__ == "__main__":
+    data_collect()

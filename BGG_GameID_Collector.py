@@ -59,9 +59,9 @@ def BGGextract():
             sheet['C1'] = 'Year Published'
             row_counter = 1 # Set rowcounter flag to begin at start of sheet. Acts as global variable to hold position of future row batches to be written.
         else:
-            print('Exiting script')
+            print('Returning to main menu...')
             sleep(2)
-            sys.exit()
+            return
 
     ######################################################
     # Perform exraction of info from BGG and write to file
@@ -119,6 +119,7 @@ def BGGextract():
 
 
     print('BGG Extract has completed, and file has been saved')
+    return
     
 
 ########################################################################
