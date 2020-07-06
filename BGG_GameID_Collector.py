@@ -39,12 +39,13 @@ def BGGextract():
         #For existing files, set the first item by reading in BGG ID# of last written row. Set last item by calling function to extract highest possible value from GeekFeed RSS
         first_item = sheet.cell(row = sheet.max_row, column = 1).value + 1
         last_item = BGGmaxitem()
+        #last_item = 20000 + sheet.cell(row = sheet.max_row, column = 1).value
         print('Script will extract IDs beginning with #' + str(first_item) + ' and ending with #' + str(last_item))
         print('\n') 
         
     else:
         choice = input('File does not exist. Would you like to create a new workbook? Warning: This script will take up to 24 hours to execute. [Y/N]: ')
-        if choice == 'Y':
+        if choice.lower() == 'y':
             print('Creating new workbook...' + '\n')
             wb = openpyxl.Workbook()
             sheet = wb.active
@@ -106,10 +107,10 @@ def BGGextract():
                 sheet.cell(row = rowNum + row_counter, column = 3).value = year_published
         row_counter = row_counter + (len(soup_names)) #record # of rows written in this batch, incrementing the global row count variable
         
-        print('\n' + 'Attempting to load next batch of BGG IDs. Will take 15-30 seconds...' '\n')        
-        sleep(randint(15,30))  #sleep to prevent rate-limit or DOS
+        print('\n' + 'Attempting to load next batch of BGG IDs. Will take 10-15 seconds...' '\n')        
+        sleep(randint(10,15))  #sleep to prevent rate-limit or DOS
+        wb.save(str(filename))   #saves the file
 
-    wb.save(str(filename))   #saves the file
     print('BGG Extract has completed, and file has been saved')
     
 
