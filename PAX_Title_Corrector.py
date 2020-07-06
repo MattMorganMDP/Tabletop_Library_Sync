@@ -8,27 +8,68 @@ from datetime import datetime
 #All code contained within main() function as to prevent automatic execution when this file is imported into main menu script
 
 def main():
+    
+    ########################################################################
+    # Function to check if a game name has multiple entries on BGG
+    ########################################################################
+
+    def DupesCheck(name):
+        
+        #See if the dictionary value for game name is a nested dictionary with more than one entry. If so, print them to menu and prompt user to choose one.
+        if len(BGGnames[name]) > 1:
+            #for games in that dict, enumerate their values and print to screen
+            for index, game in enumerate(BGGnames[name].keys()):
+                print(str(index + 1) + ' - BGG ID#: ' + str(game) + ' - Year Published: ' + str(BGGnames[name][game]))    
+            
+            # Take user input to select among duplicates, while taking measures to validate input            
+            selected_ID = 0 
+            while True:
+                #Ensure an integer is input
+                try: 
+                    selected_ID = int(input('Please enter the index # of the selected match: '))  #could add a reference dict in the enumerate line above, with index as the key, BGG ID as the value
+                except ValueError:
+                    print('Input must be numeric')
+                    continue
+
+                #Then ensure that integer is within range (length of the nested dictionary)
+                if (int(selected_ID) > len(BGGnames[name].keys()) or int(selected_ID <= 0)):  
+                    print ('Sorry, input is out of range')
+                    continue
+                else:
+                    break
+
+            lock = True  #Set flag locking row from future Corrector runs, so user does not have to re-resolve dupes
+           
+        else:
+            selected_ID = list(BGGnames[name].keys())[0]
+            lock = False  #Do not set flag locking row. There was only 1 BGG match, so there is no burden to user in including this entry in future re-runs of script.
+            #There is a higher likelihood, albeit small one, that the game is not yet listed on BGG, but is being matched to a classic title of same name
+
+        return selected_ID, lock
+    
     ########################################################################
     # Function to write a row to the PAX Corrections csv
     ########################################################################
-
+   
     def TitleWriting(game, newname = '.', status = 'pass'):
         
         # Test for correction conditions . 
-        # 1) Newname == . means no value was passed, so write row as-is and add the BGG ID#
+        # 1) Newname == . means no newname value was passed (a direct match with BGG was present), so write row as-is and add the BGG ID#
         # 2) A blank newname means correction was attempted but failed, so write row with a 0 in BGG ID# field. Log error.
         # 3) Status flag set to fail means game was manual renamed. Need to write newname, but not attempt to find BGG ID#. Log error. 
         # 4) If not blank or ., and status flag not changed, write the newname variable as game title and look up its BGG ID#
         if newname == '.':
-            TitleWriter.writerow([game, int(PAXids[PAXnames.index(game)]), BGGnames[game]])
+            ID, lock = DupesCheck(game)
+            TitleWriter.writerow([game, int(PAXids[PAXnames.index(game)]), ID, lock])
         elif newname == '':
-            TitleWriter.writerow([game, int(PAXids[PAXnames.index(game)]), 0])
+            TitleWriter.writerow([game, int(PAXids[PAXnames.index(game)]), 0, True])
             ErrorWriter.write(game + '\n')
         elif status == 'fail':
-            TitleWriter.writerow([newname, int(PAXids[PAXnames.index(game)]), 0])
+            TitleWriter.writerow([newname, int(PAXids[PAXnames.index(game)]), 0, True])
             ErrorWriter.write(newname + '\n')
         else:
-            TitleWriter.writerow([newname, int(PAXids[PAXnames.index(game)]), BGGnames[newname]])
+            ID, status = DupesCheck(newname)
+            TitleWriter.writerow([newname, int(PAXids[PAXnames.index(game)]), ID, lock])
         return()
 
     ########################################################################
@@ -36,7 +77,8 @@ def main():
     ########################################################################
 
     def MatchSelector(match, title):
-        
+        #Function takes in the PAX title and its corresponding get_close_matches object
+
         print(title + ' - Has potential correction from BGG search:')
         for index, name in enumerate(match):
             print(index + 1, name) #index is incremented for user-friendliness, so list does not start at 0
@@ -86,28 +128,33 @@ def main():
             return 'fail' #no matches found
 
     ########################################################################
-    # Prepare file I/O
+    # Main body code
     ########################################################################
 
-    ###### LOAD BGG NAMES ######
-    # Open BGG workbook, set active sheet. Initialize a dictionary of BGG names, then iterate reading game name as key and ID# as value
+    ###### Prepare file I/O: Load BGG names: Open BGG workbook, set active sheet ######
     
     try:
-        wb = openpyxl.load_workbook('BGG_ID_spreadsheet_complete.xlsx')
+        wb = openpyxl.load_workbook('BGG_IDs.xlsx')
     except: 
         print('Error: Could not locate index of BGG names/IDs. Please load BGG_ID_spreadsheet_complete.xlsx into current working directory and restart script')
         sys.exit()
     sheet = wb.active
+
+    # Initialize a dictionary of BGG names. Each unique name is a key. Value is a dictionary of ID#/year published pairings
+    # Value dictionary varies in length depending on how many duplicate entries there are on BGG for that game title
     BGGnames = {}
     for x in range(1,sheet.max_row + 1):
-        BGGnames[str(sheet.cell(x,2).value)] = sheet.cell(x,1).value
+        if str(sheet.cell(x,2).value) in BGGnames.keys():
+            BGGnames[str(sheet.cell(x,2).value)].update({sheet.cell(x,1).value : sheet.cell(x,3).value})
+        else:
+            BGGnames[str(sheet.cell(x,2).value)] = {sheet.cell(x,1).value : sheet.cell(x,3).value}
 
-
-    ###### LOAD INPUT FILE TO COMPARE (Titles Report) ######
+    ###### Prepare file I/O: Load Tabletop Library titles report csv ######
 
     # Initialize lists
     PAXnames = []
     PAXids = []
+    PAXstatus = []
 
     # Present user with menu selection of frequently-used .csv files, or allow to input own filename
     print('\n') 
@@ -117,18 +164,36 @@ def main():
     print ("1. Tabletop Library's Titles Report (TTLibrary_Titles.csv)")
     print ("2. Prior Export From Corrections Script (PAXcorrections.csv)")
     print ("3. Prior Export (Manual Filename Entry)")
+    print ("4. Abort operation")
     print (30 * '-')
     
-    choice = int(input('Please enter your choice [1-3]: '))
+    # Prompt user for input and validate input
+    choice = 0 
+    while True:
+        #Ensure an integer is input
+        try: 
+            choice = int(input('Please enter your choice [1-4]: '))
+        except ValueError:
+            print('Input must be numeric')
+            continue
 
+        #Then ensure that integer is within range (1-4)
+        if (int(choice) > 4 or int(choice <= 0)):  
+            print ('Sorry, input is out of range')
+            continue
+        else:
+            break
+
+    # Branching logic for menu choices
+    # TO-DO: Once Tabletop Library is updated to include a corrections report (which will match output format of this script), tree can be simplified
     if choice == 1:
         try:
             PAXgames = open('TTLibrary_Titles.csv', mode='r', newline='')
             reader = csv.reader(PAXgames) # Read .csv into a variable
+            next(reader)
             for rows in reader:  # Iterate through input csv and append different elements of each row to the appropriate list
                 PAXnames.append(rows[0])
                 PAXids.append(rows[4])
-            header = next(reader)
         except:
             print('Error: Could not locate Titles report. Please load TTLibrary_Titles.csv into current working directory and restart script')
             sleep(3)
@@ -137,10 +202,11 @@ def main():
         try:
             PAXgames = open('PAXcorrections.csv', 'r', newline='', encoding='utf-16')
             reader = csv.reader(PAXgames) # Read .csv into a variable
+            header = next(reader)
             for rows in reader:  # Iterate through input csv and append different elements of each row to the appropriate list
                 PAXnames.append(rows[0])
                 PAXids.append(rows[1])
-            header = next(reader)
+                PAXstatus.append(rows[2])
         except:
             print('Error: Could not locate past script output. Please load PAXcorrections.csv into current working directory and restart script')
             sleep(3)
@@ -149,14 +215,22 @@ def main():
         PAX_Titles_path = input("Enter the name of past script output .csv file: ")
         PAXgames = open(PAX_Titles_path, 'r', newline='')
         reader = csv.reader(PAXgames) # Read .csv into a variable
+        header = next(reader)
         for rows in reader:  # Iterate through input csv and append different elements of each row to the appropriate list
             PAXnames.append(rows[0])
             PAXids.append(rows[1])
-            header = next(reader)
- 
-    header = ['Title', 'PAX ID', 'BGG ID']
+            PAXstatus.append(rows[2])
 
-    ###### OPEN FILES FOR WRITING ######
+    elif choice == 4:
+        print('Aborting script execution...')
+        sleep(2)
+        sys.exit()
+ 
+    # TO-DO: Once PAX Correction report is generated by Tabletop Library, will no longer need to overwrite header here
+    header = ['Title', 'PAX ID', 'BGG ID', 'Status']
+
+    ###### Prepare file I/O: Open files to be written ######
+
     #Open output csv for writing corrected titles, set the writer object, and write the header
     PAXcorrections = open('PAXcorrections.csv', 'w', newline='', encoding='utf-16')
     TitleWriter = csv.writer(PAXcorrections, delimiter=',', escapechar='\\', quotechar='"', quoting=csv.QUOTE_NONNUMERIC)
@@ -166,7 +240,7 @@ def main():
     ErrorWriter = open('Title_Mismatch_Log.txt', 'a+') #append mode used to continue growing log
     ErrorWriter.write('\n \nTitle Corrector was run on ' + str(datetime.now()) + '\nThe following games could not be linked to BGG ID#s: \n')
 
-    ###### COMPARE NAMES & WRITE ROWS ######
+    ###### Compare game names and write rows to excel sheet ######
     for game in PAXnames:
         if game not in BGGnames.keys():
             print('Attempting match of ' + game)
@@ -188,9 +262,9 @@ def main():
                 manual_title = input('Please manually enter a corrected title. This will be written to the PAX dB without attempt to find a BGG match. If unsure, leave blank to skip: ')
                 TitleWriting(game, manual_title, 'fail')
         
-        ### Clear match was found between PAX & BGG
+        # Clear match was found between PAX & BGG:
         else:
-            print(game +  ' - No correction needed. BGG ID# is ' + str(BGGnames[game]) + ' PAX ID# is ' + str(PAXids[PAXnames.index(game)]))
+            print(game +  ' - No correction needed. BGG ID# is ' + str(list(BGGnames[game].keys())[0]) + ' PAX ID# is ' + str(PAXids[PAXnames.index(game)]))
             TitleWriting(game)
 
         print('\n') 
