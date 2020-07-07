@@ -94,7 +94,7 @@ def BGGextract():
 
             # Not all 'item' tags in BGG have a yearpublished value, so assign 0 where it is missing
             soup_year = game_id.find('yearpublished')
-            if soup_year is not None:
+            if (soup_year is not None) and (soup_year.attrs['value'] != ''):
                 year_published = soup_year.attrs['value']
             else:
                 year_published = 0
